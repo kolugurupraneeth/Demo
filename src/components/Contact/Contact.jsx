@@ -37,10 +37,23 @@ export default function Contact() {
     setForm(f => ({ ...f, [name]: type === 'checkbox' ? checked : value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setStatus('submitting')
-    setTimeout(() => setStatus('success'), 1400)
+    try {
+      const res = await fetch('https://formspree.io/f/REPLACE_WITH_FORM_ID', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(e.target),
+      })
+      if (res.ok) {
+        setStatus('success')
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
   }
 
   const reset = () => { setForm({ name: '', email: '', phone: '', message: '', contract: false }); setStatus('idle') }
@@ -107,6 +120,17 @@ export default function Contact() {
                   </p>
                   <button onClick={reset} className="btn btn-navy" style={{ marginTop: '1.5rem' }}>
                     Send Another Message
+                  </button>
+                </div>
+              ) : status === 'error' ? (
+                <div className={styles.success}>
+                  <div className={styles.successIcon} aria-hidden="true" style={{ background: 'var(--crimson)' }}>!</div>
+                  <h3 className={styles.successTitle}>Something went wrong</h3>
+                  <p className={styles.successText}>
+                    Please try again or reach us directly at <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.
+                  </p>
+                  <button onClick={reset} className="btn btn-navy" style={{ marginTop: '1.5rem' }}>
+                    Try Again
                   </button>
                 </div>
               ) : (

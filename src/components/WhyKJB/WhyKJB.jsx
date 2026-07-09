@@ -1,5 +1,6 @@
 import Reveal from '../Reveal/Reveal'
 import styles from './WhyKJB.module.css'
+import ASSETS from '../../config/assets'
 
 const PILLARS = [
   { label: 'Veteran-Owned', desc: 'Army-veteran leadership with first-hand VA service experience.' },
@@ -17,7 +18,7 @@ export default function WhyKJB() {
           <Reveal className={styles.photoCol}>
             <div className={styles.photoFrame}>
               <img
-                src="/assets/handshake.jpg"
+                src={ASSETS['handshake.jpg']}
                 alt="KJB Solutions team building a federal partnership"
                 className={styles.photo}
                 loading="lazy"

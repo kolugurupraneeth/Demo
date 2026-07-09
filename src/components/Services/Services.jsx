@@ -1,21 +1,22 @@
 import Reveal from '../Reveal/Reveal'
 import styles from './Services.module.css'
+import ASSETS from '../../config/assets'
 
 const SERVICES = [
   {
-    icon: '/assets/icon-program-mgmt.png',
+    icon: ASSETS['icon-program-mgmt.png'],
     title: 'Program Management',
     desc: "Agile Program Management frameworks tailored to each agency's stakeholders and process flows. No one-size-fits-all — every engagement is scoped to the mission.",
     href: '#contact',
   },
   {
-    icon: '/assets/icon-software-dev.png',
+    icon: ASSETS['icon-software-dev.png'],
     title: 'Software Development',
     desc: 'DevSecOps programs that support multiple government agencies while maintaining strict compliance with differing guidelines and agency-specific security requirements.',
     href: '#contact',
   },
   {
-    icon: '/assets/icon-infrastructure.png',
+    icon: ASSETS['icon-infrastructure.png'],
     title: 'Infrastructure & Consulting',
     desc: 'A proven balance of industry best practices and standards to deliver software infrastructure that is compliant, reference-model aligned, and built to modernize.',
     href: '#contact',

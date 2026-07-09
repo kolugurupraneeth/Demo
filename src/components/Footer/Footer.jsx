@@ -1,4 +1,5 @@
 import styles from './Footer.module.css'
+import ASSETS from '../../config/assets'
 
 const NAV_COLS = [
   {
@@ -52,7 +53,6 @@ function TwitterIcon() {
 }
 
 function scrollTo(href) {
-  if (!href.startsWith('#')) { window.location.href = href; return }
   const el = document.querySelector(href)
   if (!el) return
   const top = el.getBoundingClientRect().top + window.scrollY - 80
@@ -70,7 +70,7 @@ export default function Footer() {
         <div className={styles.top}>
           <div className={styles.brand}>
             <a href="#" aria-label="KJB Solutions home">
-              <img src="/assets/logo-white.png" alt="KJB Solutions" height="38" className={styles.logo} />
+              <img src={ASSETS['logo-white.png']} alt="KJB Solutions" height="38" className={styles.logo} />
             </a>
             <p className={styles.tagline}>
               Providing IT services to<br />the federal government.
@@ -97,7 +97,9 @@ export default function Footer() {
                     <a
                       href={link.href}
                       className={styles.navColLink}
-                      onClick={e => { e.preventDefault(); scrollTo(link.href) }}
+                      {...(link.href.startsWith('#') && {
+                        onClick: e => { e.preventDefault(); scrollTo(link.href) }
+                      })}
                     >
                       {link.label}
                     </a>

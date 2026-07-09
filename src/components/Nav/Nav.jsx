@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useScrolled } from '../../hooks/useScrolled'
 import styles from './Nav.module.css'
+import ASSETS from '../../config/assets'
 
 const NAV = [
   { label: 'Home', href: '#' },
@@ -99,8 +100,8 @@ export default function Nav() {
         {/* Logo */}
         <a href="#" onClick={e => { e.preventDefault(); scrollToSection('#') }} className={styles.logo} aria-label="KJB Solutions — home">
           {scrolled
-            ? <img src="/assets/logo-color.png" alt="KJB Solutions" height="40" />
-            : <img src="/assets/logo-white.png" alt="KJB Solutions" height="40" />
+            ? <img src={ASSETS['logo-color.png']} alt="KJB Solutions" height="40" />
+            : <img src={ASSETS['logo-white.png']} alt="KJB Solutions" height="40" />
           }
         </a>
 

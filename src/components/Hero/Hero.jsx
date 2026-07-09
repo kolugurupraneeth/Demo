@@ -1,9 +1,10 @@
 import { useState, useEffect, useCallback } from 'react'
 import styles from './Hero.module.css'
+import ASSETS from '../../config/assets'
 
 const SLIDES = [
   {
-    bg: '/assets/hero-1.jpg',
+    bg: ASSETS['hero-1.jpg'],
     tag: 'Veteran-Owned · Federal IT',
     heading: 'Choose KJB for Your SDLC',
     sub: 'A veteran-owned small business delivering complete software development lifecycle solutions to the federal government.',
@@ -13,7 +14,7 @@ const SLIDES = [
     ],
   },
   {
-    bg: '/assets/hero-2.jpg',
+    bg: ASSETS['hero-2.jpg'],
     tag: 'Client Confidence',
     heading: 'Our Clients Say It Best',
     sub: 'We understand and support our clients’ needs for custom, mission-critical federal IT solutions built on decades of field experience.',
@@ -23,7 +24,7 @@ const SLIDES = [
     ],
   },
   {
-    bg: '/assets/hero-3.jpg',
+    bg: ASSETS['hero-3.jpg'],
     tag: 'Serving Veterans',
     heading: 'Making a Difference for Veterans',
     sub: 'KJB develops, sustains, and provides production operation support for systems that deliver veteran health and benefits — because we’re veterans too.',
@@ -33,7 +34,7 @@ const SLIDES = [
     ],
   },
   {
-    bg: '/assets/hero-4.jpg',
+    bg: ASSETS['hero-4.jpg'],
     tag: 'Ready to Serve',
     heading: 'KJB Is Ready to Serve You',
     sub: 'End-to-end solutions for program management, software development, and infrastructure consulting — tailored to federal agency requirements.',
