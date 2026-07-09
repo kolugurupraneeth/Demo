@@ -81,8 +81,7 @@
   opacity: 0.6;
   transition: transform 0.2s ease;
 }
-.hasDrop:hover .chevron,
-.hasDrop:focus-within .chevron {
+.linkActive .chevron {
   transform: rotate(180deg);
 }
 
@@ -116,12 +115,11 @@
   transition: opacity 0.2s ease, transform 0.2s var(--ease-out);
 }
 
-.hasDrop:hover .dropdown,
-.hasDrop:focus-within .dropdown {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
+.dropdownOpen {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translateX(-50%) translateY(0) !important;
 }
 
 .dropLink {

@@ -13,8 +13,8 @@ const NAV_COLS = [
     heading: 'Company',
     links: [
       { label: 'About Us', href: '#about' },
-      { label: 'Partners', href: 'https://kjbsolution.com/about-us/partners/' },
-      { label: 'Past Projects', href: 'https://kjbsolution.com/about-us/past-projects/' },
+      { label: 'Partners', href: '#partners' },
+      { label: 'Past Projects', href: '#past-projects' },
       { label: 'Careers', href: '#careers' },
     ],
   },
@@ -49,6 +49,14 @@ function TwitterIcon() {
       <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
     </svg>
   )
+}
+
+function scrollTo(href) {
+  if (!href.startsWith('#')) { window.location.href = href; return }
+  const el = document.querySelector(href)
+  if (!el) return
+  const top = el.getBoundingClientRect().top + window.scrollY - 80
+  window.scrollTo({ top, behavior: 'smooth' })
 }
 
 export default function Footer() {
@@ -86,7 +94,11 @@ export default function Footer() {
               <ul className={styles.navColList}>
                 {col.links.map(link => (
                   <li key={link.label}>
-                    <a href={link.href} className={styles.navColLink}>
+                    <a
+                      href={link.href}
+                      className={styles.navColLink}
+                      onClick={e => { e.preventDefault(); scrollTo(link.href) }}
+                    >
                       {link.label}
                     </a>
                   </li>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useScrolled } from '../../hooks/useScrolled'
 import styles from './Nav.module.css'
 
@@ -15,14 +15,24 @@ const NAV = [
   { label: 'Clients', href: '#clients' },
   { label: 'Careers', href: '#careers' },
   {
-    label: 'About Us', href: '#about',
+    label: 'About Us', href: null,
     children: [
-      { label: 'Partners', href: 'https://kjbsolution.com/about-us/partners/' },
-      { label: 'Past Projects', href: 'https://kjbsolution.com/about-us/past-projects/' },
+      { label: 'Partners', href: '#partners' },
+      { label: 'Past Projects', href: '#past-projects' },
     ],
   },
   { label: 'Contact', href: '#contact', cta: true },
 ]
+
+function scrollToSection(href) {
+  if (!href) return
+  if (href === '#') { window.scrollTo({ top: 0, behavior: 'smooth' }); return }
+  if (!href.startsWith('#')) { window.location.href = href; return }
+  const el = document.querySelector(href)
+  if (!el) return
+  const top = el.getBoundingClientRect().top + window.scrollY - 80
+  window.scrollTo({ top, behavior: 'smooth' })
+}
 
 function ChevronIcon() {
   return (
@@ -34,20 +44,60 @@ function ChevronIcon() {
 
 export default function Nav() {
   const scrolled = useScrolled(60)
-  const [open, setOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [openDrop, setOpenDrop] = useState(null)
+  const navRef = useRef(null)
 
+  // lock body scroll when mobile menu open
   useEffect(() => {
-    if (open) document.body.style.overflow = 'hidden'
-    else document.body.style.overflow = ''
+    document.body.style.overflow = mobileOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
-  }, [open])
+  }, [mobileOpen])
+
+  // close dropdown on outside click
+  useEffect(() => {
+    function onClickOutside(e) {
+      if (navRef.current && !navRef.current.contains(e.target)) setOpenDrop(null)
+    }
+    document.addEventListener('mousedown', onClickOutside)
+    return () => document.removeEventListener('mousedown', onClickOutside)
+  }, [])
+
+  // close dropdown on Escape
+  useEffect(() => {
+    function onKey(e) { if (e.key === 'Escape') setOpenDrop(null) }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [])
+
+  function handleNavClick(e, item) {
+    e.preventDefault()
+    if (item.children) {
+      setOpenDrop(prev => prev === item.label ? null : item.label)
+    } else if (item.href) {
+      setOpenDrop(null)
+      scrollToSection(item.href)
+    }
+  }
+
+  function handleChildClick(e, child) {
+    e.preventDefault()
+    setOpenDrop(null)
+    scrollToSection(child.href)
+  }
+
+  function handleMobileChildClick(child) {
+    setMobileOpen(false)
+    setOpenDrop(null)
+    setTimeout(() => scrollToSection(child.href), 50)
+  }
 
   return (
-    <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`} role="banner">
+    <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`} role="banner" ref={navRef}>
       <div className={`container ${styles.inner}`}>
 
         {/* Logo */}
-        <a href="#" className={styles.logo} aria-label="KJB Solutions — home">
+        <a href="#" onClick={e => { e.preventDefault(); scrollToSection('#') }} className={styles.logo} aria-label="KJB Solutions — home">
           {scrolled
             ? <img src="/assets/logo-color.png" alt="KJB Solutions" height="40" />
             : <img src="/assets/logo-white.png" alt="KJB Solutions" height="40" />
@@ -57,39 +107,49 @@ export default function Nav() {
         {/* Desktop nav */}
         <nav className={styles.desktopNav} aria-label="Primary navigation">
           <ul className={styles.navList}>
-            {NAV.map(item => (
-              <li key={item.label} className={item.children ? styles.hasDrop : ''}>
-                <a
-                  href={item.href}
-                  className={`${styles.link} ${item.cta ? styles.ctaLink : ''}`}
-                >
-                  {item.label}
-                  {item.children && <ChevronIcon />}
-                </a>
+            {NAV.map(item => {
+              const isOpen = openDrop === item.label
+              return (
+                <li key={item.label} className={item.children ? styles.hasDrop : ''}>
+                  <a
+                    href={item.href || '#'}
+                    className={`${styles.link} ${item.cta ? styles.ctaLink : ''} ${isOpen ? styles.linkActive : ''}`}
+                    onClick={e => handleNavClick(e, item)}
+                    aria-expanded={item.children ? isOpen : undefined}
+                  >
+                    {item.label}
+                    {item.children && <ChevronIcon />}
+                  </a>
 
-                {item.children && (
-                  <ul className={styles.dropdown} role="menu">
-                    {item.children.map(child => (
-                      <li key={child.label} role="none">
-                        <a href={child.href} role="menuitem" className={styles.dropLink}>
-                          {child.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
+                  {item.children && (
+                    <ul className={`${styles.dropdown} ${isOpen ? styles.dropdownOpen : ''}`} role="menu">
+                      {item.children.map(child => (
+                        <li key={child.label} role="none">
+                          <a
+                            href={child.href}
+                            role="menuitem"
+                            className={styles.dropLink}
+                            onClick={e => handleChildClick(e, child)}
+                          >
+                            {child.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              )
+            })}
           </ul>
         </nav>
 
         {/* Hamburger */}
         <button
-          className={`${styles.hamburger} ${open ? styles.hamburgerOpen : ''}`}
-          onClick={() => setOpen(v => !v)}
-          aria-expanded={open}
+          className={`${styles.hamburger} ${mobileOpen ? styles.hamburgerOpen : ''}`}
+          onClick={() => setMobileOpen(v => !v)}
+          aria-expanded={mobileOpen}
           aria-controls="mobile-nav"
-          aria-label={open ? 'Close navigation' : 'Open navigation'}
+          aria-label={mobileOpen ? 'Close navigation' : 'Open navigation'}
         >
           <span /><span /><span />
         </button>
@@ -98,16 +158,21 @@ export default function Nav() {
       {/* Mobile overlay */}
       <div
         id="mobile-nav"
-        className={`${styles.mobileOverlay} ${open ? styles.mobileOpen : ''}`}
-        aria-hidden={!open}
+        className={`${styles.mobileOverlay} ${mobileOpen ? styles.mobileOpen : ''}`}
+        aria-hidden={!mobileOpen}
       >
         <ul className={styles.mobileList}>
           {NAV.map(item => (
             <li key={item.label} className={styles.mobileItem}>
               <a
-                href={item.href}
+                href={item.href || '#'}
                 className={styles.mobileLink}
-                onClick={() => setOpen(false)}
+                onClick={e => {
+                  e.preventDefault()
+                  if (item.children) return // just show sub-links below, don't close
+                  setMobileOpen(false)
+                  setTimeout(() => scrollToSection(item.href), 50)
+                }}
               >
                 {item.label}
               </a>
@@ -118,7 +183,7 @@ export default function Nav() {
                       <a
                         href={child.href}
                         className={styles.mobileSubLink}
-                        onClick={() => setOpen(false)}
+                        onClick={e => { e.preventDefault(); handleMobileChildClick(child) }}
                       >
                         {child.label}
                       </a>
