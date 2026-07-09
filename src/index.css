@@ -1,5 +1,6 @@
 /* ─── Reset ─────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 
 /* ─── Design tokens ─────────────────────────────────────────────────── */
 :root {
@@ -34,6 +35,7 @@
 /* ─── Base ───────────────────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
   -webkit-text-size-adjust: 100%;
 }
 
