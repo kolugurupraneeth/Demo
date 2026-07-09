@@ -41,10 +41,10 @@ export default function Contact() {
     e.preventDefault()
     setStatus('submitting')
     try {
-      const res = await fetch('https://formspree.io/f/REPLACE_WITH_FORM_ID', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(e.target),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
       })
       if (res.ok) {
         setStatus('success')
