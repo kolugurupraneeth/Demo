@@ -1,0 +1,213 @@
+.hero {
+  position: relative;
+  height: 100svh;
+  min-height: 580px;
+  max-height: 920px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* ─── Slides ─────────────────────────────────────────────────────────── */
+.slides {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  will-change: opacity;
+}
+
+.slide::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    112deg,
+    rgba(0, 20, 52, 0.90) 0%,
+    rgba(0, 35, 80, 0.75) 42%,
+    rgba(0, 42, 92, 0.30) 100%
+  );
+}
+
+.slideActive { opacity: 1; }
+
+/* ─── Content panels ─────────────────────────────────────────────────── */
+.contentWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease 0s;
+}
+
+.contentActive {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.8s ease 0.55s;
+}
+
+/* Tag line */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-head);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 1.375rem;
+}
+
+.tagBar {
+  width: 2.5rem;
+  height: 2px;
+  background: var(--orange);
+  flex-shrink: 0;
+}
+
+/* Heading */
+.heading {
+  font-family: var(--font-head);
+  font-size: clamp(2.5rem, 5.5vw, 4.75rem);
+  font-weight: 900;
+  line-height: 1.07;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  max-width: 13ch;
+  text-wrap: balance;
+  margin-bottom: 1.25rem;
+}
+
+/* Subtext */
+.sub {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.6vw, 1.125rem);
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 50ch;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  text-wrap: pretty;
+}
+
+/* CTA row */
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ─── Dots ───────────────────────────────────────────────────────────── */
+.dots {
+  position: absolute;
+  bottom: 2.5rem;
+  left: clamp(1.25rem, 4vw, 2.5rem);
+  z-index: 3;
+  display: flex;
+  gap: 0.625rem;
+  align-items: center;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 0;
+  transition: background 0.3s ease, transform 0.3s var(--ease-out), width 0.3s ease;
+  flex-shrink: 0;
+}
+
+.dot:hover { background: rgba(255,255,255,0.6); }
+
+.dotActive {
+  background: var(--orange);
+  width: 24px;
+  border-radius: 4px;
+  transform: none;
+}
+
+.dot:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+}
+
+/* ─── Scroll hint ────────────────────────────────────────────────────── */
+.scrollHint {
+  position: absolute;
+  bottom: 2.25rem;
+  right: clamp(1.25rem, 4vw, 2.5rem);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.scrollText {
+  font-family: var(--font-head);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  writing-mode: vertical-rl;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 3rem;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.35), transparent);
+  animation: pulse-line 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse-line {
+  0%, 100% { opacity: 1; transform: scaleY(1); }
+  50%       { opacity: 0.4; transform: scaleY(0.6); }
+}
+
+/* ─── Crimson accent ─────────────────────────────────────────────────── */
+.accentLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--crimson);
+  z-index: 4;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .heading { max-width: none; }
+  .sub { max-width: none; }
+  .scrollHint { display: none; }
+  .actions { gap: 0.75rem; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .slide { transition: none; }
+  .content { transition: none; }
+  .scrollLine { animation: none; }
+  .dotActive { width: 8px; }
+}

@@ -1,0 +1,18 @@
+.reveal {
+  /* Visible by default — animation is progressive enhancement */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity  0.65s ease var(--reveal-delay, 0ms),
+      transform 0.65s var(--ease-out, cubic-bezier(0.16,1,0.3,1)) var(--reveal-delay, 0ms);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+}
