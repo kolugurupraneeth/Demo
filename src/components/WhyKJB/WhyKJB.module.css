@@ -1,0 +1,153 @@
+.section {
+  background: var(--navy-deep);
+  color: var(--white);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 7vw, 6rem);
+  align-items: center;
+}
+
+/* ─── Photo column ───────────────────────────────────────────────────── */
+.photoCol {}
+
+.photoFrame {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.photo {
+  width: 100%;
+  height: clamp(320px, 50vh, 520px);
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Floating badge */
+.badge {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: var(--crimson);
+  color: var(--white);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.badgeStar {
+  font-size: 1.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.badgeText {
+  font-family: var(--font-head);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ─── Copy column ────────────────────────────────────────────────────── */
+.copyCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.rule {
+  width: 3rem;
+  height: 3px;
+  background: var(--orange);
+  margin-bottom: 1.25rem;
+  border-radius: 2px;
+}
+
+.heading {
+  color: var(--white);
+  margin-bottom: 0;
+}
+
+.body {
+  font-family: var(--font-body);
+  font-size: clamp(0.9375rem, 1.3vw, 1.0625rem);
+  color: rgba(255,255,255,0.72);
+  line-height: 1.78;
+  text-wrap: pretty;
+}
+.body + .body { margin-top: -0.75rem; }
+
+/* ─── Pillars ────────────────────────────────────────────────────────── */
+.pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: -0.5rem;
+}
+
+.pillarWrap { display: block; }
+
+.pillar {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem 1.25rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+.pillar:hover { background: rgba(255,255,255,0.08); }
+
+.pillarDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--orange);
+  flex-shrink: 0;
+  margin-top: 0.4rem;
+}
+
+.pillarLabel {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.25rem;
+}
+
+.pillarDesc {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.5;
+}
+
+/* ─── CTA ────────────────────────────────────────────────────────────── */
+.cta {
+  align-self: flex-start;
+  margin-top: -0.25rem;
+  border-color: rgba(255,255,255,0.35) !important;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .photoFrame { max-width: 600px; }
+}
+
+@media (max-width: 600px) {
+  .badge { bottom: 1rem; right: 1rem; padding: 0.75rem 1rem; }
+}

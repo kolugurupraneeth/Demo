@@ -1,0 +1,27 @@
+import Nav from './components/Nav/Nav'
+import Hero from './components/Hero/Hero'
+import Services from './components/Services/Services'
+import WhyKJB from './components/WhyKJB/WhyKJB'
+import Clients from './components/Clients/Clients'
+import Credentials from './components/Credentials/Credentials'
+import CareersCallout from './components/CareersCallout/CareersCallout'
+import Contact from './components/Contact/Contact'
+import Footer from './components/Footer/Footer'
+
+export default function App() {
+  return (
+    <>
+      <Nav />
+      <main id="main-content">
+        <Hero />
+        <Services />
+        <WhyKJB />
+        <Clients />
+        <Credentials />
+        <CareersCallout />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  )
+}
