@@ -16,8 +16,9 @@ const NAV = [
   { label: 'Clients', href: '#clients' },
   { label: 'Careers', href: '#careers' },
   {
-    label: 'About Us', href: null,
+    label: 'About Us', href: '#about',
     children: [
+      { label: 'Why KJB', href: '#about' },
       { label: 'Partners', href: '#partners' },
       { label: 'Past Projects', href: '#past-projects' },
     ],
@@ -75,6 +76,7 @@ export default function Nav() {
     e.preventDefault()
     if (item.children) {
       setOpenDrop(prev => prev === item.label ? null : item.label)
+      if (item.href) scrollToSection(item.href)
     } else if (item.href) {
       setOpenDrop(null)
       scrollToSection(item.href)
