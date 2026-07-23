@@ -6,6 +6,17 @@ import ASSETS from '../../config/assets'
 const NAV = [
   { label: 'Home', href: '#' },
   {
+    label: 'Who We Are', href: '#who-we-are',
+    children: [
+      { label: 'About Ken Brunetto', href: '#who-we-are' },
+      { label: 'About KJB', href: '#about-kjb' },
+      { label: 'Mission & Vision', href: '#mission-vision' },
+      { label: 'Core Values', href: '#core-values' },
+      { label: 'Partners', href: '#partners' },
+      { label: 'Past Projects', href: '#past-projects' },
+    ],
+  },
+  {
     label: 'Solutions', href: '#solutions',
     children: [
       { label: 'Program Management', href: '#solutions' },
@@ -15,14 +26,6 @@ const NAV = [
   },
   { label: 'Clients', href: '#clients' },
   { label: 'Careers', href: '#careers' },
-  {
-    label: 'About Us', href: '#about',
-    children: [
-      { label: 'Why KJB', href: '#about' },
-      { label: 'Partners', href: '#partners' },
-      { label: 'Past Projects', href: '#past-projects' },
-    ],
-  },
   { label: 'Contact', href: '#contact', cta: true },
 ]
 

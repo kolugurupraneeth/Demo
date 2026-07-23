@@ -1,0 +1,368 @@
+/* ═══════════════════════════════════════════════════════════════════
+   WHO WE ARE — Ken Brunetto, About KJB, Mission & Vision, Core Values
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ─── Shared rules ────────────────────────────────────────────────── */
+.rule {
+  width: 3rem;
+  height: 3px;
+  background: var(--orange);
+  margin-bottom: 1.5rem;
+  border-radius: 2px;
+}
+.ruleNavy {
+  width: 3rem;
+  height: 3px;
+  background: var(--navy);
+  margin-bottom: 1.5rem;
+  border-radius: 2px;
+}
+.ruleCrimson {
+  width: 3rem;
+  height: 3px;
+  background: var(--crimson);
+  margin-bottom: 1.5rem;
+  border-radius: 2px;
+}
+
+/* ─── Ken Brunetto section ────────────────────────────────────────── */
+.kenSection {
+  background: var(--navy-deep);
+  color: var(--white);
+}
+
+.kenGrid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: clamp(3rem, 7vw, 6rem);
+  align-items: center;
+}
+
+.kenRole {
+  font-family: var(--font-head);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--orange);
+  margin-bottom: 1rem;
+}
+
+.kenHeading {
+  font-family: var(--font-head);
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: 1.75rem;
+  text-wrap: balance;
+}
+
+.kenBio {
+  font-family: var(--font-body);
+  font-size: clamp(0.9375rem, 1.2vw, 1.0625rem);
+  color: rgba(255,255,255,0.74);
+  line-height: 1.8;
+  text-wrap: pretty;
+}
+.kenBio + .kenBio {
+  margin-top: 1.125rem;
+}
+
+/* Callout panel */
+.kenCallout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  padding: 2.75rem 2rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.11);
+  border-radius: 18px;
+}
+
+.monogram {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: var(--crimson);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-head);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+
+.kenBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.kenBadge {
+  font-family: var(--font-head);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--orange);
+  border: 1px solid rgba(232,136,0,0.38);
+  border-radius: 4px;
+  padding: 0.3rem 0.7rem;
+}
+
+.kenQuote {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 500;
+  color: rgba(255,255,255,0.62);
+  line-height: 1.65;
+  max-width: 22ch;
+}
+
+/* ─── About KJB section ───────────────────────────────────────────── */
+.aboutSection {
+  background: var(--white);
+}
+
+.aboutHeader {
+  margin-bottom: 2.5rem;
+}
+
+.aboutHeading {
+  color: var(--navy);
+  margin-bottom: 0;
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+
+.aboutBody {
+  font-family: var(--font-body);
+  font-size: clamp(0.9375rem, 1.2vw, 1.0625rem);
+  color: var(--text-mid);
+  line-height: 1.8;
+  text-wrap: pretty;
+}
+.aboutBody + .aboutBody {
+  margin-top: 1.125rem;
+}
+
+/* ─── Mission & Vision section ────────────────────────────────────── */
+.mvSection {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.mvGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.mvCard {
+  padding: clamp(2rem, 4vw, 3rem);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.11);
+  border-radius: 16px;
+}
+
+.mvVision {
+  background: rgba(232,136,0,0.09);
+  border-color: rgba(232,136,0,0.28);
+}
+
+.mvLabel {
+  font-family: var(--font-head);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--orange);
+  margin-bottom: 0.625rem;
+}
+
+.mvHeading {
+  font-family: var(--font-head);
+  font-size: clamp(1.375rem, 2.2vw, 1.875rem);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-bottom: 1.125rem;
+  text-wrap: balance;
+}
+
+.mvBody {
+  font-family: var(--font-body);
+  font-size: clamp(0.9375rem, 1.2vw, 1.0625rem);
+  color: rgba(255,255,255,0.72);
+  line-height: 1.78;
+  text-wrap: pretty;
+}
+
+/* ─── Core Values section ─────────────────────────────────────────── */
+.coreSection {
+  background: var(--off-white);
+}
+
+.coreHeader {
+  margin-bottom: 2.5rem;
+}
+
+.coreHeading {
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.coreLead {
+  color: var(--text-mid);
+  margin-bottom: 0;
+}
+
+/* Featured first value */
+.coreFeatured {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  padding: clamp(2rem, 4vw, 3rem) clamp(2rem, 4vw, 3rem);
+  background: var(--navy-deep);
+  border-radius: 16px;
+  margin-bottom: 1.25rem;
+  color: var(--white);
+}
+
+.coreFeaturedNum {
+  font-family: var(--font-head);
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  font-weight: 900;
+  color: rgba(232,136,0,0.35);
+  letter-spacing: -0.05em;
+  line-height: 1;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.coreFeaturedBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.coreFeaturedName {
+  font-family: var(--font-head);
+  font-size: clamp(1.375rem, 2.5vw, 2rem);
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.025em;
+  display: block;
+}
+
+.coreFeaturedDesc {
+  font-family: var(--font-body);
+  font-size: clamp(0.9375rem, 1.2vw, 1.0625rem);
+  color: rgba(255,255,255,0.72);
+  line-height: 1.72;
+  text-wrap: pretty;
+  max-width: 68ch;
+}
+
+/* 2-column grid for remaining 8 values */
+.coreGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.coreItem {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: 1.5rem 1.75rem;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.18s ease;
+}
+.coreItem:hover { background: var(--off-white); }
+
+/* Bottom row — no border on last two */
+.coreItem:nth-last-child(-n+2) { border-bottom: none; }
+
+/* Right column items get a left border */
+.coreItem:nth-child(even) {
+  border-left: 1px solid var(--border);
+}
+
+.coreNum {
+  font-family: var(--font-head);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--crimson);
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+  min-width: 1.75rem;
+}
+
+.coreName {
+  font-family: var(--font-head);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--navy);
+  display: block;
+  margin-bottom: 0.375rem;
+  line-height: 1.3;
+}
+
+.coreDesc {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 1000px) {
+  .kenGrid { grid-template-columns: 1fr; gap: 3rem; }
+  .kenCallout { flex-direction: row; text-align: left; padding: 1.75rem 2rem; }
+  .kenBadges { justify-content: flex-start; }
+  .kenQuote { max-width: none; }
+}
+
+@media (max-width: 820px) {
+  .aboutGrid { grid-template-columns: 1fr; gap: 0; }
+  .aboutGrid > *:first-child { margin-bottom: 1.25rem; }
+  .mvGrid { grid-template-columns: 1fr; }
+  .coreFeatured { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .coreFeaturedNum { font-size: clamp(2.5rem, 8vw, 4rem); }
+  .coreGrid { grid-template-columns: 1fr; }
+  .coreItem:nth-child(even) { border-left: none; }
+  .coreItem:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+  .coreItem:last-child { border-bottom: none; }
+}
+
+@media (max-width: 600px) {
+  .kenCallout {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+  .kenBadges { justify-content: center; }
+  .kenQuote { max-width: 22ch; }
+}

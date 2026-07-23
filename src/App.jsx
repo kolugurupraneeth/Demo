@@ -1,5 +1,6 @@
 import Nav from './components/Nav/Nav'
 import Hero from './components/Hero/Hero'
+import WhoWeAre from './components/WhoWeAre/WhoWeAre'
 import Services from './components/Services/Services'
 import WhyKJB from './components/WhyKJB/WhyKJB'
 import Clients from './components/Clients/Clients'
@@ -16,6 +17,7 @@ export default function App() {
       <Nav />
       <main id="main-content">
         <Hero />
+        <WhoWeAre />
         <Services />
         <WhyKJB />
         <Clients />
