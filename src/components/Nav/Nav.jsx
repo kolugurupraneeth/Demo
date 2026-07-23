@@ -1,50 +1,45 @@
 import { useState, useEffect, useRef } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useScrolled } from '../../hooks/useScrolled'
 import styles from './Nav.module.css'
 import ASSETS from '../../config/assets'
 
 const NAV = [
-  { label: 'Home', href: '#' },
+  { label: 'Home', to: '/' },
   {
-    label: 'Who We Are', href: '#who-we-are',
+    label: 'Who We Are', to: '/about',
     children: [
-      { label: 'About Ken Brunetto', href: '#who-we-are' },
-      { label: 'About KJB', href: '#about-kjb' },
-      { label: 'Mission & Vision', href: '#mission-vision' },
-      { label: 'Core Values', href: '#core-values' },
-      { label: 'Partners', href: '#partners' },
-      { label: 'Past Projects', href: '#past-projects' },
+      { label: 'About Ken Brunetto', to: '/about' },
+      { label: 'Mission & Vision', to: '/about#mission-vision' },
+      { label: 'Core Values', to: '/about#core-values' },
+      { label: 'Our Partners', to: '/about#partners' },
     ],
   },
   {
-    label: 'Solutions', href: '#solutions',
+    label: 'What We Do', to: '/solutions',
     children: [
-      { label: 'Program Management', href: '#solutions' },
-      { label: 'Software Development', href: '#solutions' },
-      { label: 'Infrastructure & Consulting', href: '#solutions' },
+      { label: 'Program Management', to: '/solutions' },
+      { label: 'Software Development', to: '/solutions' },
+      { label: 'Infrastructure & Consulting', to: '/solutions' },
+      { label: 'Past Projects', to: '/solutions#past-projects' },
     ],
   },
-  { label: 'Clients', href: '#clients' },
-  { label: 'Careers', href: '#careers' },
   {
-    label: 'Connect', href: '#social',
+    label: 'Careers', to: '/careers',
     children: [
-      { label: 'Social Media', href: '#social' },
-      { label: 'Events & Conferences', href: '#events' },
+      { label: 'Open Positions', to: '/careers' },
+      { label: 'Events & Conferences', to: '/careers#events' },
     ],
   },
-  { label: 'Contact', href: '#contact', cta: true },
+  {
+    label: 'Connect', to: '/connect',
+    children: [
+      { label: 'Social Media', to: '/connect' },
+      { label: 'News & Updates', to: '/connect#news' },
+    ],
+  },
+  { label: 'Contact Us', to: '/contact', cta: true },
 ]
-
-function scrollToSection(href) {
-  if (!href) return
-  if (href === '#') { window.scrollTo({ top: 0, behavior: 'smooth' }); return }
-  if (!href.startsWith('#')) { window.location.href = href; return }
-  const el = document.querySelector(href)
-  if (!el) return
-  const top = el.getBoundingClientRect().top + window.scrollY - 80
-  window.scrollTo({ top, behavior: 'smooth' })
-}
 
 function ChevronIcon() {
   return (
@@ -59,14 +54,21 @@ export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [openDrop, setOpenDrop] = useState(null)
   const navRef = useRef(null)
+  const location = useLocation()
 
-  // lock body scroll when mobile menu open
+  // Close everything on route change
+  useEffect(() => {
+    setMobileOpen(false)
+    setOpenDrop(null)
+  }, [location.pathname, location.hash])
+
+  // Lock body scroll when mobile menu open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [mobileOpen])
 
-  // close dropdown on outside click
+  // Close dropdown on outside click
   useEffect(() => {
     function onClickOutside(e) {
       if (navRef.current && !navRef.current.contains(e.target)) setOpenDrop(null)
@@ -75,34 +77,17 @@ export default function Nav() {
     return () => document.removeEventListener('mousedown', onClickOutside)
   }, [])
 
-  // close dropdown on Escape
+  // Close dropdown on Escape
   useEffect(() => {
-    function onKey(e) { if (e.key === 'Escape') setOpenDrop(null) }
+    function onKey(e) { if (e.key === 'Escape') { setOpenDrop(null); setMobileOpen(false) } }
     document.addEventListener('keydown', onKey)
     return () => document.removeEventListener('keydown', onKey)
   }, [])
 
-  function handleNavClick(e, item) {
-    e.preventDefault()
-    if (item.children) {
-      setOpenDrop(prev => prev === item.label ? null : item.label)
-      if (item.href) scrollToSection(item.href)
-    } else if (item.href) {
-      setOpenDrop(null)
-      scrollToSection(item.href)
-    }
-  }
-
-  function handleChildClick(e, child) {
-    e.preventDefault()
-    setOpenDrop(null)
-    scrollToSection(child.href)
-  }
-
-  function handleMobileChildClick(child) {
-    setMobileOpen(false)
-    setOpenDrop(null)
-    setTimeout(() => scrollToSection(child.href), 50)
+  function isActive(item) {
+    const path = location.pathname
+    if (item.to === '/') return path === '/'
+    return path.startsWith(item.to)
   }
 
   return (
@@ -110,42 +95,49 @@ export default function Nav() {
       <div className={`container ${styles.inner}`}>
 
         {/* Logo */}
-        <a href="#" onClick={e => { e.preventDefault(); scrollToSection('#') }} className={styles.logo} aria-label="KJB Solutions — home">
+        <Link to="/" className={styles.logo} aria-label="KJB Solutions — home">
           {scrolled
             ? <img src={ASSETS['logo-color.png']} alt="KJB Solutions" height="40" />
             : <img src={ASSETS['logo-white.png']} alt="KJB Solutions" height="40" />
           }
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <nav className={styles.desktopNav} aria-label="Primary navigation">
           <ul className={styles.navList}>
             {NAV.map(item => {
               const isOpen = openDrop === item.label
+              const active = isActive(item)
               return (
                 <li key={item.label} className={item.children ? styles.hasDrop : ''}>
-                  <a
-                    href={item.href || '#'}
-                    className={`${styles.link} ${item.cta ? styles.ctaLink : ''} ${isOpen ? styles.linkActive : ''}`}
-                    onClick={e => handleNavClick(e, item)}
+                  <Link
+                    to={item.to}
+                    className={`${styles.link} ${item.cta ? styles.ctaLink : ''} ${isOpen || active ? styles.linkActive : ''}`}
+                    onClick={() => {
+                      if (item.children) {
+                        setOpenDrop(prev => prev === item.label ? null : item.label)
+                      } else {
+                        setOpenDrop(null)
+                      }
+                    }}
                     aria-expanded={item.children ? isOpen : undefined}
                   >
                     {item.label}
                     {item.children && <ChevronIcon />}
-                  </a>
+                  </Link>
 
                   {item.children && (
                     <ul className={`${styles.dropdown} ${isOpen ? styles.dropdownOpen : ''}`} role="menu">
                       {item.children.map(child => (
                         <li key={child.label} role="none">
-                          <a
-                            href={child.href}
+                          <Link
+                            to={child.to}
                             role="menuitem"
                             className={styles.dropLink}
-                            onClick={e => handleChildClick(e, child)}
+                            onClick={() => setOpenDrop(null)}
                           >
                             {child.label}
-                          </a>
+                          </Link>
                         </li>
                       ))}
                     </ul>
@@ -177,32 +169,40 @@ export default function Nav() {
         <ul className={styles.mobileList}>
           {NAV.map(item => (
             <li key={item.label} className={styles.mobileItem}>
-              <a
-                href={item.href || '#'}
-                className={styles.mobileLink}
-                onClick={e => {
-                  e.preventDefault()
-                  if (item.children) return // just show sub-links below, don't close
-                  setMobileOpen(false)
-                  setTimeout(() => scrollToSection(item.href), 50)
-                }}
-              >
-                {item.label}
-              </a>
-              {item.children && (
-                <ul className={styles.mobileSub}>
-                  {item.children.map(child => (
-                    <li key={child.label}>
-                      <a
-                        href={child.href}
-                        className={styles.mobileSubLink}
-                        onClick={e => { e.preventDefault(); handleMobileChildClick(child) }}
-                      >
-                        {child.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+              {item.children ? (
+                <>
+                  <button
+                    className={styles.mobileGroupBtn}
+                    onClick={() => setOpenDrop(prev => prev === item.label ? null : item.label)}
+                    aria-expanded={openDrop === item.label}
+                  >
+                    {item.label}
+                    <ChevronIcon />
+                  </button>
+                  {openDrop === item.label && (
+                    <ul className={styles.mobileSub}>
+                      {item.children.map(child => (
+                        <li key={child.label}>
+                          <Link
+                            to={child.to}
+                            className={styles.mobileSubLink}
+                            onClick={() => setMobileOpen(false)}
+                          >
+                            {child.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </>
+              ) : (
+                <Link
+                  to={item.to}
+                  className={`${styles.mobileLink} ${item.cta ? styles.mobileCta : ''}`}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {item.label}
+                </Link>
               )}
             </li>
           ))}

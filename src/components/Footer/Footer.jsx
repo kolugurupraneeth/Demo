@@ -1,30 +1,33 @@
+import { Link } from 'react-router-dom'
 import styles from './Footer.module.css'
 import ASSETS from '../../config/assets'
 
 const NAV_COLS = [
   {
-    heading: 'Solutions',
+    heading: 'What We Do',
     links: [
-      { label: 'Program Management', href: '#solutions' },
-      { label: 'Software Development', href: '#solutions' },
-      { label: 'Infrastructure & Consulting', href: '#solutions' },
+      { label: 'Program Management', to: '/solutions' },
+      { label: 'Software Development', to: '/solutions' },
+      { label: 'Infrastructure & Consulting', to: '/solutions' },
+      { label: 'Past Projects', to: '/solutions#past-projects' },
     ],
   },
   {
     heading: 'Company',
     links: [
-      { label: 'About Us', href: '#about' },
-      { label: 'Partners', href: '#partners' },
-      { label: 'Past Projects', href: '#past-projects' },
-      { label: 'Careers', href: '#careers' },
+      { label: 'Who We Are', to: '/about' },
+      { label: 'Mission & Values', to: '/about#mission-vision' },
+      { label: 'Our Partners', to: '/about#partners' },
+      { label: 'Careers', to: '/careers' },
+      { label: 'Connect', to: '/connect' },
     ],
   },
   {
     heading: 'Contact',
     links: [
-      { label: '571-277-3586', href: 'tel:571-277-3586' },
-      { label: 'kbjsolutions@kjbsolution.com', href: 'mailto:kbjsolutions@kjbsolution.com' },
-      { label: 'Send a Message', href: '#contact' },
+      { label: '571-277-3586', to: 'tel:571-277-3586', external: true },
+      { label: 'kbjsolutions@kjbsolution.com', to: 'mailto:kbjsolutions@kjbsolution.com', external: true },
+      { label: 'Send a Message', to: '/contact' },
     ],
   },
 ]
@@ -52,13 +55,6 @@ function TwitterIcon() {
   )
 }
 
-function scrollTo(href) {
-  const el = document.querySelector(href)
-  if (!el) return
-  const top = el.getBoundingClientRect().top + window.scrollY - 80
-  window.scrollTo({ top, behavior: 'smooth' })
-}
-
 export default function Footer() {
   const year = new Date().getFullYear()
 
@@ -69,9 +65,9 @@ export default function Footer() {
         {/* Top: logo + nav cols */}
         <div className={styles.top}>
           <div className={styles.brand}>
-            <a href="#" aria-label="KJB Solutions home">
+            <Link to="/" aria-label="KJB Solutions home">
               <img src={ASSETS['logo-white.png']} alt="KJB Solutions" height="38" className={styles.logo} />
-            </a>
+            </Link>
             <p className={styles.tagline}>
               Providing IT services to<br />the federal government.
             </p>
@@ -94,15 +90,11 @@ export default function Footer() {
               <ul className={styles.navColList}>
                 {col.links.map(link => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className={styles.navColLink}
-                      {...(link.href.startsWith('#') && {
-                        onClick: e => { e.preventDefault(); scrollTo(link.href) }
-                      })}
-                    >
-                      {link.label}
-                    </a>
+                    {link.external ? (
+                      <a href={link.to} className={styles.navColLink}>{link.label}</a>
+                    ) : (
+                      <Link to={link.to} className={styles.navColLink}>{link.label}</Link>
+                    )}
                   </li>
                 ))}
               </ul>

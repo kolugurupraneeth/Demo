@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Reveal from '../Reveal/Reveal'
 import styles from './Clients.module.css'
 
@@ -57,9 +58,9 @@ export default function Clients() {
                 the mission from the inside — as veterans ourselves, we are consumers of
                 the very software we build.
               </p>
-              <a href="#contact" className="btn btn-primary">
+              <Link to="/contact" className="btn btn-primary">
                 Work With KJB →
-              </a>
+              </Link>
             </div>
 
             <div className={styles.featuredRight}>

@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+import { Link } from 'react-router-dom'
 import styles from './Hero.module.css'
 import ASSETS from '../../config/assets'
 
@@ -9,28 +10,28 @@ const SLIDES = [
     heading: 'Choose KJB for Your SDLC',
     sub: 'A veteran-owned small business delivering complete software development lifecycle solutions to the federal government.',
     ctas: [
-      { label: 'About KJB', href: '#about', primary: true },
-      { label: 'Our Solutions', href: '#solutions' },
+      { label: 'Who We Are', to: '/about', primary: true },
+      { label: 'Our Solutions', to: '/solutions' },
     ],
   },
   {
     bg: ASSETS['hero-2.jpg'],
     tag: 'Client Confidence',
     heading: 'Our Clients Say It Best',
-    sub: 'We understand and support our clients’ needs for custom, mission-critical federal IT solutions built on decades of field experience.',
+    sub: "We understand and support our clients' needs for custom, mission-critical federal IT solutions built on decades of field experience.",
     ctas: [
-      { label: 'Our Solutions', href: '#solutions', primary: true },
-      { label: 'Contact Us', href: '#contact' },
+      { label: 'Our Solutions', to: '/solutions', primary: true },
+      { label: 'Contact Us', to: '/contact' },
     ],
   },
   {
     bg: ASSETS['hero-3.jpg'],
     tag: 'Serving Veterans',
     heading: 'Making a Difference for Veterans',
-    sub: 'KJB develops, sustains, and provides production operation support for systems that deliver veteran health and benefits — because we’re veterans too.',
+    sub: "KJB develops, sustains, and provides production operation support for systems that deliver veteran health and benefits — because we're veterans too.",
     ctas: [
-      { label: 'Our Mission', href: '#about', primary: true },
-      { label: 'Careers', href: '#careers' },
+      { label: 'Our Mission', to: '/about#mission-vision', primary: true },
+      { label: 'Careers', to: '/careers' },
     ],
   },
   {
@@ -39,8 +40,8 @@ const SLIDES = [
     heading: 'KJB Is Ready to Serve You',
     sub: 'End-to-end solutions for program management, software development, and infrastructure consulting — tailored to federal agency requirements.',
     ctas: [
-      { label: 'Get Started', href: '#contact', primary: true },
-      { label: 'Our Solutions', href: '#solutions' },
+      { label: 'Get Started', to: '/contact', primary: true },
+      { label: 'Our Solutions', to: '/solutions' },
     ],
   },
 ]
@@ -98,16 +99,16 @@ export default function Hero() {
               <p className={styles.sub}>{slide.sub}</p>
               <div className={styles.actions}>
                 {slide.ctas.map(cta => (
-                  <a
+                  <Link
                     key={cta.label}
-                    href={cta.href}
+                    to={cta.to}
                     className={`btn ${cta.primary ? 'btn-primary' : 'btn-outline'}`}
                   >
                     {cta.label}
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                       <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>

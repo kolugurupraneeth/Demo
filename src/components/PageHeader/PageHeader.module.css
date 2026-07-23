@@ -1,0 +1,63 @@
+.header {
+  background: var(--navy-deep);
+  padding: clamp(3.5rem, 7vw, 5.5rem) 0 clamp(3rem, 6vw, 4.5rem);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle grid texture */
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  max-width: 720px;
+}
+
+.accent {
+  display: inline-block;
+  font-family: var(--font-head);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--orange);
+  margin-bottom: 1rem;
+}
+
+.rule {
+  width: 3rem;
+  height: 3px;
+  background: var(--orange);
+  border-radius: 2px;
+  margin-bottom: 1.375rem;
+}
+
+.title {
+  font-family: var(--font-head);
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  text-wrap: balance;
+}
+
+.lead {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
+  color: rgba(255,255,255,0.68);
+  line-height: 1.72;
+  max-width: 60ch;
+  text-wrap: pretty;
+}

@@ -1,37 +1,30 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Nav from './components/Nav/Nav'
-import Hero from './components/Hero/Hero'
-import WhoWeAre from './components/WhoWeAre/WhoWeAre'
-import Services from './components/Services/Services'
-import WhyKJB from './components/WhyKJB/WhyKJB'
-import Clients from './components/Clients/Clients'
-import Partners from './components/Partners/Partners'
-import PastProjects from './components/PastProjects/PastProjects'
-import Credentials from './components/Credentials/Credentials'
-import CareersCallout from './components/CareersCallout/CareersCallout'
-import Events from './components/Events/Events'
-import Social from './components/Social/Social'
-import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
+import ScrollToHash from './components/ScrollToHash/ScrollToHash'
+import HomePage from './pages/HomePage'
+import AboutPage from './pages/AboutPage'
+import SolutionsPage from './pages/SolutionsPage'
+import CareersPage from './pages/CareersPage'
+import ConnectPage from './pages/ConnectPage'
+import ContactPage from './pages/ContactPage'
 
 export default function App() {
   return (
-    <>
+    <BrowserRouter>
+      <ScrollToHash />
       <Nav />
       <main id="main-content">
-        <Hero />
-        <WhoWeAre />
-        <Services />
-        <WhyKJB />
-        <Clients />
-        <Partners />
-        <PastProjects />
-        <Credentials />
-        <CareersCallout />
-        <Events />
-        <Social />
-        <Contact />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/solutions" element={<SolutionsPage />} />
+          <Route path="/careers" element={<CareersPage />} />
+          <Route path="/connect" element={<ConnectPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
       </main>
       <Footer />
-    </>
+    </BrowserRouter>
   )
 }
