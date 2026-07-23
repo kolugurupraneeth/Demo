@@ -58,6 +58,10 @@
   border-radius: 6px;
   transition: color 0.15s ease, background 0.15s ease;
   white-space: nowrap;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .scrolled .link { color: var(--text); }
@@ -102,24 +106,33 @@
   position: absolute;
   top: calc(100% + 0.75rem);
   left: 50%;
-  transform: translateX(-50%) translateY(-8px);
+  transform: translateX(-50%) translateY(-10px);
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: 10px;
   box-shadow: 0 8px 40px rgba(0,42,92,0.15);
-  min-width: 220px;
+  min-width: 230px;
   padding: 0.375rem 0;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.2s ease, transform 0.2s var(--ease-out);
+  /* visibility delays on close so opacity can finish fading first */
+  transition:
+    opacity    0.22s ease,
+    transform  0.22s var(--ease-out),
+    visibility 0s   linear 0.22s;
 }
 
 .dropdownOpen {
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
-  transform: translateX(-50%) translateY(0) !important;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+  /* visibility becomes visible immediately on open */
+  transition:
+    opacity    0.22s ease,
+    transform  0.22s var(--ease-out),
+    visibility 0s   linear 0s;
 }
 
 .dropLink {

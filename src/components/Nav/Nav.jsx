@@ -56,11 +56,10 @@ export default function Nav() {
   const navRef = useRef(null)
   const location = useLocation()
 
-  // Close everything on route change
+  // Close mobile menu on route change; desktop dropdown closes via its own onClick
   useEffect(() => {
     setMobileOpen(false)
-    setOpenDrop(null)
-  }, [location.pathname, location.hash])
+  }, [location.pathname])
 
   // Lock body scroll when mobile menu open
   useEffect(() => {
@@ -110,21 +109,23 @@ export default function Nav() {
               const active = isActive(item)
               return (
                 <li key={item.label} className={item.children ? styles.hasDrop : ''}>
-                  <Link
-                    to={item.to}
-                    className={`${styles.link} ${item.cta ? styles.ctaLink : ''} ${isOpen || active ? styles.linkActive : ''}`}
-                    onClick={() => {
-                      if (item.children) {
-                        setOpenDrop(prev => prev === item.label ? null : item.label)
-                      } else {
-                        setOpenDrop(null)
-                      }
-                    }}
-                    aria-expanded={item.children ? isOpen : undefined}
-                  >
-                    {item.label}
-                    {item.children && <ChevronIcon />}
-                  </Link>
+                  {item.children ? (
+                    <button
+                      className={`${styles.link} ${isOpen || active ? styles.linkActive : ''}`}
+                      onClick={() => setOpenDrop(prev => prev === item.label ? null : item.label)}
+                      aria-expanded={isOpen}
+                    >
+                      {item.label}
+                      <ChevronIcon />
+                    </button>
+                  ) : (
+                    <Link
+                      to={item.to}
+                      className={`${styles.link} ${item.cta ? styles.ctaLink : ''} ${active ? styles.linkActive : ''}`}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
 
                   {item.children && (
                     <ul className={`${styles.dropdown} ${isOpen ? styles.dropdownOpen : ''}`} role="menu">
