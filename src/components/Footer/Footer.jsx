@@ -19,6 +19,7 @@ const NAV_COLS = [
       { label: 'Mission & Values', to: '/about#mission-vision' },
       { label: 'Our Partners', to: '/about#partners' },
       { label: 'Careers', to: '/careers' },
+      { label: 'Open Positions', to: '/careers#open-positions' },
       { label: 'Connect', to: '/connect' },
     ],
   },

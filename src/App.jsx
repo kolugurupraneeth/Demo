@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Nav from './components/Nav/Nav'
 import Footer from './components/Footer/Footer'
 import ScrollToHash from './components/ScrollToHash/ScrollToHash'
@@ -9,12 +9,12 @@ import CareersPage from './pages/CareersPage'
 import ConnectPage from './pages/ConnectPage'
 import ContactPage from './pages/ContactPage'
 
-export default function App() {
+function AppShell() {
+  const { pathname } = useLocation()
   return (
-    <BrowserRouter>
-      <ScrollToHash />
+    <>
       <Nav />
-      <main id="main-content">
+      <main key={pathname} id="main-content">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
@@ -25,6 +25,15 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+    </>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <ScrollToHash />
+      <AppShell />
     </BrowserRouter>
   )
 }

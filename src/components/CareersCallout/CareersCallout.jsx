@@ -79,7 +79,7 @@ export default function CareersCallout() {
       </div>
 
       {/* ── Job listings ─────────────────────────────────────────── */}
-      <div className={styles.jobsWrap}>
+      <div id="open-positions" className={styles.jobsWrap}>
         <div className="container">
           <Reveal className={styles.jobsHeader}>
             <h3 className={styles.jobsHeading}>Open Positions</h3>

@@ -27,7 +27,7 @@ const NAV = [
   {
     label: 'Careers', to: '/careers',
     children: [
-      { label: 'Open Positions', to: '/careers' },
+      { label: 'Open Positions', to: '/careers#open-positions' },
       { label: 'Events & Conferences', to: '/careers#events' },
     ],
   },
