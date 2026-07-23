@@ -1,0 +1,145 @@
+.section {
+  background: var(--navy-deep);
+  color: var(--white);
+}
+
+/* ─── Header ──────────────────────────────────────────────────────── */
+.rule {
+  width: 3rem;
+  height: 3px;
+  background: var(--orange);
+  margin-bottom: 1.5rem;
+  border-radius: 2px;
+}
+
+.heading { color: var(--white); margin-bottom: 0.75rem; }
+.lead    { color: rgba(255,255,255,0.68); margin-bottom: 0; max-width: 62ch; }
+
+/* ─── Upcoming box ────────────────────────────────────────────────── */
+.upcomingBox {
+  display: flex;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding: clamp(2rem, 4vw, 3rem);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.04);
+}
+
+.upcomingYear {
+  font-family: var(--font-head);
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 900;
+  color: rgba(232,136,0,0.25);
+  letter-spacing: -0.05em;
+  line-height: 1;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.upcomingLabel {
+  font-family: var(--font-head);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--orange);
+  margin-bottom: 0.5rem;
+}
+
+.upcomingHeading {
+  font-family: var(--font-head);
+  font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.025em;
+  margin-bottom: 0.875rem;
+  text-wrap: balance;
+}
+
+.upcomingBody {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+  color: rgba(255,255,255,0.68);
+  line-height: 1.72;
+  margin-bottom: 1.75rem;
+  max-width: 58ch;
+  text-wrap: pretty;
+}
+
+.upcomingActions {
+  display: flex;
+  gap: 0.875rem;
+  flex-wrap: wrap;
+}
+
+/* ─── Past events ─────────────────────────────────────────────────── */
+.pastSection {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.pastHeading {
+  font-family: var(--font-head);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 1.25rem;
+}
+
+.pastGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.pastCard {
+  padding: 1.5rem 1.75rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 12px;
+  transition: background 0.18s ease;
+}
+.pastCard:hover { background: rgba(255,255,255,0.08); }
+
+.pastType {
+  font-family: var(--font-head);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--orange);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.pastName {
+  font-family: var(--font-head);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.35;
+  margin-bottom: 0.875rem;
+}
+
+.pastMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pastMetaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 720px) {
+  .upcomingBox { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .upcomingYear { font-size: clamp(3rem, 12vw, 5rem); }
+}

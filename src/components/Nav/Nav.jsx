@@ -26,6 +26,13 @@ const NAV = [
   },
   { label: 'Clients', href: '#clients' },
   { label: 'Careers', href: '#careers' },
+  {
+    label: 'Connect', href: '#social',
+    children: [
+      { label: 'Social Media', href: '#social' },
+      { label: 'Events & Conferences', href: '#events' },
+    ],
+  },
   { label: 'Contact', href: '#contact', cta: true },
 ]
 

@@ -15,11 +15,13 @@
   pointer-events: none;
 }
 
+/* ─── Hero callout ───────────────────────────────────────────────── */
 .inner {
   position: relative;
   z-index: 1;
   display: flex;
   justify-content: center;
+  padding-bottom: clamp(2.5rem, 5vw, 3.5rem);
 }
 
 .content {
@@ -39,7 +41,6 @@
   color: var(--orange);
   margin-bottom: 1.5rem;
 }
-
 .tagBar {
   width: 2rem;
   height: 2px;
@@ -57,7 +58,6 @@
   margin-bottom: 1.25rem;
   text-wrap: balance;
 }
-
 .headingAccent {
   font-style: italic;
   color: var(--orange);
@@ -68,20 +68,155 @@
   font-size: clamp(1rem, 1.5vw, 1.0625rem);
   color: rgba(255,255,255,0.68);
   line-height: 1.72;
-  margin-bottom: 2.5rem;
   max-width: 54ch;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   text-wrap: pretty;
 }
 
-.actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
+/* ─── Jobs section ───────────────────────────────────────────────── */
+.jobsWrap {
+  position: relative;
+  z-index: 1;
+  background: var(--off-white);
+  padding: clamp(3rem, 6vw, 5rem) 0 clamp(3.5rem, 7vw, 6rem);
 }
 
+.jobsHeader {
+  margin-bottom: 2.5rem;
+}
+
+.jobsHeading {
+  font-family: var(--font-head);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.03em;
+  margin-bottom: 0.625rem;
+}
+
+.jobsLead {
+  font-family: var(--font-body);
+  font-size: clamp(0.9375rem, 1.2vw, 1.0625rem);
+  color: var(--text-mid);
+  line-height: 1.68;
+  max-width: 58ch;
+  text-wrap: pretty;
+}
+
+/* ─── Job cards grid ─────────────────────────────────────────────── */
+.jobsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.125rem;
+}
+
+.jobCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.75rem 2rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: box-shadow 0.25s var(--ease-out), border-color 0.2s ease;
+}
+.jobCard:hover {
+  box-shadow: 0 8px 40px rgba(0,42,92,0.10);
+  border-color: var(--border-mid);
+}
+
+.jobTop { display: flex; align-items: flex-start; justify-content: space-between; }
+
+.jobDept {
+  font-family: var(--font-head);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--crimson);
+  margin-bottom: 0.375rem;
+}
+
+.jobTitle {
+  font-family: var(--font-head);
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+.jobMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+}
+
+.jobTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8125rem;
+  color: var(--text-mid);
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.25rem 0.625rem;
+}
+
+.jobReqs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.jobReq {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  font-size: 0.875rem;
+  color: var(--text-mid);
+  line-height: 1.5;
+}
+
+.jobReqDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--orange);
+  flex-shrink: 0;
+  margin-top: 0.45rem;
+}
+
+.applyBtn {
+  align-self: flex-start;
+  margin-top: auto;
+  font-size: 0.875rem;
+  padding: 0.625rem 1.375rem;
+}
+
+/* ─── Footer note ────────────────────────────────────────────────── */
+.jobsFooter {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.jobsFooterText {
+  font-size: 0.9375rem;
+  color: var(--text-mid);
+  flex: 1;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 820px) {
+  .jobsGrid { grid-template-columns: 1fr; }
+}
 @media (max-width: 480px) {
-  .actions { flex-direction: column; align-items: center; }
+  .jobsFooter { flex-direction: column; align-items: flex-start; }
 }

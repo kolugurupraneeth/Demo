@@ -8,6 +8,8 @@ import Partners from './components/Partners/Partners'
 import PastProjects from './components/PastProjects/PastProjects'
 import Credentials from './components/Credentials/Credentials'
 import CareersCallout from './components/CareersCallout/CareersCallout'
+import Events from './components/Events/Events'
+import Social from './components/Social/Social'
 import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
 
@@ -25,6 +27,8 @@ export default function App() {
         <PastProjects />
         <Credentials />
         <CareersCallout />
+        <Events />
+        <Social />
         <Contact />
       </main>
       <Footer />
