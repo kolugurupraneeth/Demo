@@ -18,9 +18,9 @@ const NAV = [
   {
     label: 'What We Do', to: '/solutions',
     children: [
-      { label: 'Program Management', to: '/solutions' },
-      { label: 'Software Development', to: '/solutions' },
-      { label: 'Infrastructure & Consulting', to: '/solutions' },
+      { label: 'Program Management', to: '/solutions#program-management' },
+      { label: 'Software Development', to: '/solutions#software-development' },
+      { label: 'Infrastructure & Consulting', to: '/solutions#infrastructure-consulting' },
       { label: 'Past Projects', to: '/solutions#past-projects' },
     ],
   },

@@ -4,18 +4,21 @@ import ASSETS from '../../config/assets'
 
 const SERVICES = [
   {
+    id: 'program-management',
     icon: ASSETS['icon-program-mgmt.png'],
     title: 'Program Management',
     desc: "Agile Program Management frameworks tailored to each agency's stakeholders and process flows. No one-size-fits-all — every engagement is scoped to the mission.",
     href: '#contact',
   },
   {
+    id: 'software-development',
     icon: ASSETS['icon-software-dev.png'],
     title: 'Software Development',
     desc: 'DevSecOps programs that support multiple government agencies while maintaining strict compliance with differing guidelines and agency-specific security requirements.',
     href: '#contact',
   },
   {
+    id: 'infrastructure-consulting',
     icon: ASSETS['icon-infrastructure.png'],
     title: 'Infrastructure & Consulting',
     desc: 'A proven balance of industry best practices and standards to deliver software infrastructure that is compliant, reference-model aligned, and built to modernize.',
@@ -57,7 +60,7 @@ export default function Services() {
           <div className={styles.list}>
             {SERVICES.map((svc, i) => (
               <Reveal key={svc.title} delay={i * 120} className={styles.rowWrap}>
-                <a href={svc.href} className={styles.row} aria-label={`Learn about ${svc.title}`}>
+                <a id={svc.id} href={svc.href} className={styles.row} aria-label={`Learn about ${svc.title}`}>
                   <div className={styles.iconWrap}>
                     <img src={svc.icon} alt="" width="48" height="48" />
                   </div>
