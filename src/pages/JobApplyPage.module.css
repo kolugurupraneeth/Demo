@@ -335,6 +335,13 @@
   padding: 0.875rem 2rem;
   font-size: 1rem;
   margin-top: 0.25rem;
+  transition: background 0.18s ease, border-color 0.18s ease, transform 0.15s ease;
+}
+.submitBtn:not(:disabled):hover {
+  background: var(--crimson);
+  border-color: var(--crimson);
+  filter: none;
+  transform: translateY(-1px);
 }
 .submitBtn:disabled {
   opacity: 0.65;
