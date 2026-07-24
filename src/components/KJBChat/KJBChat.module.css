@@ -484,6 +484,31 @@
   outline-offset: 2px;
 }
 
+/* ─── Session cap banner ─────────────────────────────────────────────── */
+.sessionCap {
+  padding: 0.875rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(150, 31, 33, 0.12);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  line-height: 1.5;
+  flex-shrink: 0;
+}
+
+.sessionCapLink {
+  color: var(--orange);
+  text-decoration: underline;
+  text-decoration-color: rgba(232, 136, 0, 0.4);
+  text-underline-offset: 2px;
+}
+
+.sessionCapLink:hover {
+  color: var(--orange-lt, #f09a20);
+  text-decoration-color: var(--orange-lt, #f09a20);
+}
+
 /* ─── Responsive ─────────────────────────────────────────────────────── */
 @media (max-width: 480px) {
   .panel {

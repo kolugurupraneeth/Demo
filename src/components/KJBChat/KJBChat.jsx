@@ -44,6 +44,8 @@ function formatText(text) {
   })
 }
 
+const SESSION_MSG_LIMIT = 20 // max user turns per page load
+
 export default function KJBChat() {
   const [open, setOpen] = useState(false)
   const [messages, setMessages] = useState([WELCOME])
@@ -54,6 +56,9 @@ export default function KJBChat() {
   const bottomRef = useRef(null)
   const inputRef = useRef(null)
   const panelRef = useRef(null)
+
+  const userTurns = messages.filter(m => m.role === 'user').length
+  const sessionCapped = userTurns >= SESSION_MSG_LIMIT
 
   const handleOpen = () => {
     setOpen(true)
@@ -93,7 +98,7 @@ export default function KJBChat() {
 
   const send = useCallback(async () => {
     const text = input.trim()
-    if (!text || loading) return
+    if (!text || loading || sessionCapped) return
 
     const userMsg = { role: 'user', content: text }
     const history = [...messages, userMsg].map(m => ({ role: m.role, content: m.content }))
@@ -109,6 +114,12 @@ export default function KJBChat() {
         body: JSON.stringify({ messages: history }),
       })
 
+      if (res.status === 429) {
+        const { error } = await res.json()
+        setMessages(prev => [...prev, { role: 'assistant', content: error ?? 'Too many requests — please wait a moment before trying again.' }])
+        return
+      }
+
       if (!res.ok) throw new Error('request failed')
       const { content } = await res.json()
       const id = `ai-${Date.now()}`
@@ -122,7 +133,7 @@ export default function KJBChat() {
     } finally {
       setLoading(false)
     }
-  }, [input, loading, messages])
+  }, [input, loading, messages, sessionCapped])
 
   const handleKey = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send() }
@@ -216,27 +227,35 @@ export default function KJBChat() {
         </div>
 
         {/* Input bar */}
-        <div className={styles.inputWrap}>
-          <input
-            ref={inputRef}
-            className={styles.input}
-            value={input}
-            onChange={e => setInput(e.target.value)}
-            onKeyDown={handleKey}
-            placeholder="Ask about KJB Solutions…"
-            disabled={loading}
-            maxLength={500}
-            aria-label="Chat message input"
-          />
-          <button
-            className={styles.sendBtn}
-            onClick={send}
-            disabled={loading || !input.trim()}
-            aria-label="Send message"
-          >
-            <SendIcon />
-          </button>
-        </div>
+        {sessionCapped ? (
+          <div className={styles.sessionCap}>
+            Session limit reached. To continue,{' '}
+            <a href="mailto:kbjsolutions@kjbsolution.com" className={styles.sessionCapLink}>email us</a>
+            {' '}or call <a href="tel:+15712773586" className={styles.sessionCapLink}>571-277-3586</a>.
+          </div>
+        ) : (
+          <div className={styles.inputWrap}>
+            <input
+              ref={inputRef}
+              className={styles.input}
+              value={input}
+              onChange={e => setInput(e.target.value)}
+              onKeyDown={handleKey}
+              placeholder="Ask about KJB Solutions…"
+              disabled={loading}
+              maxLength={500}
+              aria-label="Chat message input"
+            />
+            <button
+              className={styles.sendBtn}
+              onClick={send}
+              disabled={loading || !input.trim()}
+              aria-label="Send message"
+            >
+              <SendIcon />
+            </button>
+          </div>
+        )}
       </div>
     </>
   )
