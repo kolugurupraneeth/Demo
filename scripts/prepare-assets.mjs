@@ -17,18 +17,21 @@ const ensureParent = async (filePath) => mkdir(dirname(filePath), { recursive: t
 const writeImage = async (pipeline, filePath, format, options = {}) => {
   await ensureParent(filePath)
 
-  let output = pipeline.clone().sharpen({ sigma: 1.05, m1: 0.9, m2: 1.1, x1: 2, y2: 10, y3: 18 })
+  let output = pipeline.clone()
+    .modulate({ saturation: 1.35, brightness: 1.02 })
+    .linear(1.12, -12)
+    .sharpen({ sigma: 0.9, m1: 1.2, m2: 1.5, x1: 2, y2: 12, y3: 20 })
 
   if (format === 'jpg') {
-    output = output.jpeg({ quality: 88, mozjpeg: true, progressive: true, chromaSubsampling: '4:4:4', ...options })
+    output = output.jpeg({ quality: 90, mozjpeg: true, progressive: true, chromaSubsampling: '4:4:4', ...options })
   }
 
   if (format === 'webp') {
-    output = output.webp({ quality: 86, effort: 5, ...options })
+    output = output.webp({ quality: 88, effort: 5, ...options })
   }
 
   if (format === 'avif') {
-    output = output.avif({ quality: 60, effort: 6, chromaSubsampling: '4:4:4', ...options })
+    output = output.avif({ quality: 65, effort: 6, chromaSubsampling: '4:4:4', ...options })
   }
 
   if (format === 'png') {
@@ -46,11 +49,12 @@ const generateResponsiveSet = async ({
   extraFormats,
   fit = 'cover',
   position = 'centre',
+  cropRatio = null, // width/height — set to cap output height (e.g. 1920/900 for hero)
 }) => {
   const input = await source()
   const image = sharp(input, { animated: false }).rotate()
   const metadata = await image.metadata()
-  const aspectRatio = metadata.width / metadata.height
+  const aspectRatio = cropRatio ?? metadata.width / metadata.height
 
   for (const width of widths) {
     const height = Math.round(width / aspectRatio)
@@ -91,36 +95,48 @@ const generateDensitySet = async ({ source, name, baseFormat, widths }) => {
 
 await mkdir(outputDir, { recursive: true })
 
+// hero-1: Amravati data center – clean white rack corridor (CC BY-SA 4.0, Wikimedia)
 await generateResponsiveSet({
-  source: () => localAsset('reference/original-site/wp-content/uploads/2019/04/Home-page-slider-image1.jpg'),
+  source: () => remoteAsset('https://commons.wikimedia.org/wiki/Special:FilePath/Racks_Amravati_Data_Center.jpg'),
   name: 'hero-1',
   widths: [1600, 2560, 3440],
   baseFormat: 'jpg',
   extraFormats: ['webp', 'avif'],
+  cropRatio: 1920 / 900,
+  position: 'centre',
 })
 
+// hero-2: US Capitol at Dusk (public domain, Wikimedia Commons)
 await generateResponsiveSet({
-  source: () => localAsset('reference/original-site/wp-content/uploads/2019/12/Home-page-slider-image2.jpg'),
+  source: () => remoteAsset('https://upload.wikimedia.org/wikipedia/commons/6/64/Capitol_at_Dusk_2.jpg'),
   name: 'hero-2',
   widths: [1600, 2560, 3440],
   baseFormat: 'jpg',
   extraFormats: ['webp', 'avif'],
+  cropRatio: 1920 / 900,
+  position: 'centre',
 })
 
+// hero-3: Vietnam Veterans Memorial ceremony – honor guard & flags, Washington DC (CC BY-SA 4.0)
 await generateResponsiveSet({
-  source: () => localAsset('reference/original-site/wp-content/uploads/2019/12/Home-page-slider-image3.jpg'),
+  source: () => remoteAsset('https://commons.wikimedia.org/wiki/Special:FilePath/Ceremony_honoring_Vietnam_War_veterans_at_the_Vietnam_Veterans_Memorial_in_Washington,_March_29,_2025_-_9.jpg'),
   name: 'hero-3',
   widths: [1600, 2560, 3440],
   baseFormat: 'jpg',
   extraFormats: ['webp', 'avif'],
+  cropRatio: 1920 / 900,
+  position: 'centre',
 })
 
+// hero-4: Vietnam Veterans Memorial – wreath & Washington Monument (CC BY-SA 4.0)
 await generateResponsiveSet({
-  source: () => localAsset('reference/original-site/wp-content/uploads/2019/12/Home-page-slider-image4.jpg'),
+  source: () => remoteAsset('https://commons.wikimedia.org/wiki/Special:FilePath/Ceremony_honoring_Vietnam_War_veterans_at_the_Vietnam_Veterans_Memorial_in_Washington,_March_29,_2025_-_5.jpg'),
   name: 'hero-4',
   widths: [1600, 2560, 3440],
   baseFormat: 'jpg',
   extraFormats: ['webp', 'avif'],
+  cropRatio: 1920 / 900,
+  position: 'centre',
 })
 
 await generateResponsiveSet({
