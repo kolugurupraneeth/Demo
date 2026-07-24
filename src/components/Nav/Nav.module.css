@@ -95,10 +95,13 @@
   color: var(--white) !important;
   font-weight: 600 !important;
   margin-left: 0.375rem;
+  transition: background 0.18s ease, box-shadow 0.18s ease, transform 0.15s ease !important;
 }
 .ctaLink:hover {
-  background: var(--orange-lt) !important;
+  background: #c97800 !important;
+  box-shadow: 0 4px 14px rgba(232, 136, 0, 0.38) !important;
   filter: none !important;
+  transform: translateY(-1px);
 }
 
 /* Dropdown */
