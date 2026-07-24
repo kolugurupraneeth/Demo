@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Nav from './components/Nav/Nav'
 import Footer from './components/Footer/Footer'
 import ScrollToHash from './components/ScrollToHash/ScrollToHash'
+import KJBChat from './components/KJBChat/KJBChat'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import SolutionsPage from './pages/SolutionsPage'
@@ -27,6 +28,7 @@ function AppShell() {
         </Routes>
       </main>
       <Footer />
+      <KJBChat />
     </>
   )
 }

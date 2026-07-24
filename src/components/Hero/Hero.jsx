@@ -88,7 +88,7 @@ export default function Hero() {
                 alt=""
                 className={styles.slideImage}
                 loading={i === 0 ? 'eager' : 'lazy'}
-                fetchPriority={i === 0 ? 'high' : 'auto'}
+                fetchpriority={i === 0 ? 'high' : 'auto'}
                 decoding="async"
               />
             </picture>
