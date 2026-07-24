@@ -81,6 +81,18 @@
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.11);
   border-radius: 18px;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  cursor: default;
+}
+.kenCallout:hover {
+  transform: translateY(-6px);
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(255,255,255,0.24);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+}
+.kenCallout:active {
+  transform: translateY(-2px);
+  transition-duration: 0.1s;
 }
 
 .monogram {
@@ -97,6 +109,11 @@
   color: var(--white);
   letter-spacing: -0.02em;
   flex-shrink: 0;
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s ease;
+}
+.kenCallout:hover .monogram {
+  transform: scale(1.12);
+  box-shadow: 0 8px 32px rgba(150,31,33,0.55);
 }
 
 .kenBadges {
@@ -116,6 +133,11 @@
   border: 1px solid rgba(232,136,0,0.38);
   border-radius: 4px;
   padding: 0.3rem 0.7rem;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+.kenCallout:hover .kenBadge {
+  border-color: rgba(232,136,0,0.7);
+  color: var(--orange-lt);
 }
 
 .kenQuote {
@@ -126,6 +148,10 @@
   color: rgba(255,255,255,0.62);
   line-height: 1.65;
   max-width: 22ch;
+  transition: color 0.3s ease;
+}
+.kenCallout:hover .kenQuote {
+  color: rgba(255,255,255,0.88);
 }
 
 /* ─── About KJB section ───────────────────────────────────────────── */
