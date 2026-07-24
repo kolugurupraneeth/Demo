@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import Reveal from '../Reveal/Reveal'
 import styles from './WhyKJB.module.css'
-import ASSETS from '../../config/assets'
+import { HANDSHAKE_IMAGE } from '../../config/assets'
 
 const PILLARS = [
   { label: 'Veteran-Owned', desc: 'Army-veteran leadership with first-hand VA service experience.' },
@@ -18,12 +18,19 @@ export default function WhyKJB() {
           {/* Photo */}
           <Reveal className={styles.photoCol}>
             <div className={styles.photoFrame}>
-              <img
-                src={ASSETS['handshake.jpg']}
-                alt="KJB Solutions team building a federal partnership"
-                className={styles.photo}
-                loading="lazy"
-              />
+              <picture>
+                <source type="image/avif" srcSet={HANDSHAKE_IMAGE.avifSrcSet} sizes={HANDSHAKE_IMAGE.sizes} />
+                <source type="image/webp" srcSet={HANDSHAKE_IMAGE.webpSrcSet} sizes={HANDSHAKE_IMAGE.sizes} />
+                <img
+                  src={HANDSHAKE_IMAGE.src}
+                  srcSet={HANDSHAKE_IMAGE.srcSet}
+                  sizes={HANDSHAKE_IMAGE.sizes}
+                  alt="KJB Solutions team building a federal partnership"
+                  className={styles.photo}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
               {/* Floating badge */}
               <div className={styles.badge} aria-hidden="true">
                 <span className={styles.badgeStar}>★</span>

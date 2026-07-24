@@ -1,11 +1,11 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Hero.module.css'
-import ASSETS from '../../config/assets'
+import { HERO_IMAGES } from '../../config/assets'
 
 const SLIDES = [
   {
-    bg: ASSETS['hero-1.jpg'],
+    image: HERO_IMAGES.hero1,
     tag: 'Veteran-Owned · Federal IT',
     heading: 'Choose KJB for Your SDLC',
     sub: 'A veteran-owned small business delivering complete software development lifecycle solutions to the federal government.',
@@ -15,7 +15,7 @@ const SLIDES = [
     ],
   },
   {
-    bg: ASSETS['hero-2.jpg'],
+    image: HERO_IMAGES.hero2,
     tag: 'Client Confidence',
     heading: 'Our Clients Say It Best',
     sub: "We understand and support our clients' needs for custom, mission-critical federal IT solutions built on decades of field experience.",
@@ -25,7 +25,7 @@ const SLIDES = [
     ],
   },
   {
-    bg: ASSETS['hero-3.jpg'],
+    image: HERO_IMAGES.hero3,
     tag: 'Serving Veterans',
     heading: 'Making a Difference for Veterans',
     sub: "KJB develops, sustains, and provides production operation support for systems that deliver veteran health and benefits — because we're veterans too.",
@@ -35,7 +35,7 @@ const SLIDES = [
     ],
   },
   {
-    bg: ASSETS['hero-4.jpg'],
+    image: HERO_IMAGES.hero4,
     tag: 'Ready to Serve',
     heading: 'KJB Is Ready to Serve You',
     sub: 'End-to-end solutions for program management, software development, and infrastructure consulting — tailored to federal agency requirements.',
@@ -77,8 +77,22 @@ export default function Hero() {
           <div
             key={i}
             className={`${styles.slide} ${i === current ? styles.slideActive : ''}`}
-            style={{ backgroundImage: `url(${slide.bg})` }}
-          />
+          >
+            <picture className={styles.slideMedia}>
+              <source type="image/avif" srcSet={slide.image.avifSrcSet} sizes={slide.image.sizes} />
+              <source type="image/webp" srcSet={slide.image.webpSrcSet} sizes={slide.image.sizes} />
+              <img
+                src={slide.image.src}
+                srcSet={slide.image.srcSet}
+                sizes={slide.image.sizes}
+                alt=""
+                className={styles.slideImage}
+                loading={i === 0 ? 'eager' : 'lazy'}
+                fetchPriority={i === 0 ? 'high' : 'auto'}
+                decoding="async"
+              />
+            </picture>
+          </div>
         ))}
       </div>
 

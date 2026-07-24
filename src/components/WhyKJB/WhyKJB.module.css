@@ -17,13 +17,20 @@
   position: relative;
   border-radius: 18px;
   overflow: hidden;
+  aspect-ratio: 1046 / 720;
+}
+
+.photoFrame picture {
+  display: block;
+  height: 100%;
 }
 
 .photo {
   width: 100%;
-  height: clamp(320px, 50vh, 520px);
+  height: 100%;
+  min-height: clamp(320px, 50vh, 520px);
   object-fit: cover;
-  object-position: center;
+  object-position: center 45%;
   display: block;
 }
 

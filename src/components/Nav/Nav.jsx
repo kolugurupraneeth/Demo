@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useScrolled } from '../../hooks/useScrolled'
 import styles from './Nav.module.css'
-import ASSETS from '../../config/assets'
+import { DENSITY_IMAGES } from '../../config/assets'
 
 const NAV = [
   { label: 'Home', to: '/' },
@@ -95,10 +95,24 @@ export default function Nav() {
 
         {/* Logo */}
         <Link to="/" className={styles.logo} aria-label="KJB Solutions — home">
-          {scrolled
-            ? <img src={ASSETS['logo-color.png']} alt="KJB Solutions" height="40" />
-            : <img src={ASSETS['logo-white.png']} alt="KJB Solutions" height="40" />
-          }
+          {scrolled ? (
+            <img
+              src={DENSITY_IMAGES.colorLogo.src}
+              srcSet={DENSITY_IMAGES.colorLogo.srcSet}
+              alt="KJB Solutions"
+              width="298"
+              height="40"
+              decoding="async"
+            />
+          ) : (
+            <img
+              src={DENSITY_IMAGES.whiteLogo.src}
+              srcSet={DENSITY_IMAGES.whiteLogo.srcSet}
+              alt="KJB Solutions"
+              height="40"
+              decoding="async"
+            />
+          )}
         </Link>
 
         {/* Desktop nav */}

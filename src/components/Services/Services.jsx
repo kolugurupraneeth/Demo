@@ -1,26 +1,26 @@
 import { Link } from 'react-router-dom'
 import Reveal from '../Reveal/Reveal'
 import styles from './Services.module.css'
-import ASSETS from '../../config/assets'
+import { DENSITY_IMAGES } from '../../config/assets'
 
 const SERVICES = [
   {
     id: 'program-management',
-    icon: ASSETS['icon-program-mgmt.png'],
+    icon: DENSITY_IMAGES.programIcon,
     title: 'Program Management',
     desc: "Agile Program Management frameworks tailored to each agency's stakeholders and process flows. No one-size-fits-all — every engagement is scoped to the mission.",
     href: '/contact',
   },
   {
     id: 'software-development',
-    icon: ASSETS['icon-software-dev.png'],
+    icon: DENSITY_IMAGES.softwareIcon,
     title: 'Software Development',
     desc: 'DevSecOps programs that support multiple government agencies while maintaining strict compliance with differing guidelines and agency-specific security requirements.',
     href: '/contact',
   },
   {
     id: 'infrastructure-consulting',
-    icon: ASSETS['icon-infrastructure.png'],
+    icon: DENSITY_IMAGES.infrastructureIcon,
     title: 'Infrastructure & Consulting',
     desc: 'A proven balance of industry best practices and standards to deliver software infrastructure that is compliant, reference-model aligned, and built to modernize.',
     href: '/contact',
@@ -63,7 +63,7 @@ export default function Services() {
               <Reveal key={svc.title} delay={i * 120} className={styles.rowWrap}>
                 <Link id={svc.id} to={svc.href} className={styles.row} aria-label={`Learn about ${svc.title}`}>
                   <div className={styles.iconWrap}>
-                    <img src={svc.icon} alt="" width="48" height="48" />
+                    <img src={svc.icon.src} srcSet={svc.icon.srcSet} alt="" width="48" height="48" decoding="async" />
                   </div>
                   <div className={styles.body}>
                     <h3 className={styles.title}>{svc.title}</h3>

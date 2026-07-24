@@ -3,8 +3,10 @@ import { readFileSync, readdirSync, writeFileSync } from 'fs'
 import { extname, join } from 'path'
 
 const ASSETS_DIR = new URL('../public/assets/', import.meta.url).pathname
+const MANIFEST_PATH = new URL('../src/config/blobAssetUrls.js', import.meta.url).pathname
 
 const MIME = {
+  '.avif': 'image/avif',
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
   '.png': 'image/png',
@@ -28,6 +30,7 @@ for (const file of files) {
   console.log(`Uploading ${file}…`)
   const blob = await put(`kjb-assets/${file}`, body, {
     access: 'public',
+    allowOverwrite: true,
     contentType,
     token,
   })
@@ -40,5 +43,5 @@ const config = `const ASSETS = ${JSON.stringify(result, null, 2)}
 export default ASSETS
 `
 
-writeFileSync(new URL('../src/config/assets.js', import.meta.url).pathname, config)
-console.log('\nWrote src/config/assets.js')
+writeFileSync(MANIFEST_PATH, config)
+console.log(`\nWrote ${MANIFEST_PATH}`)

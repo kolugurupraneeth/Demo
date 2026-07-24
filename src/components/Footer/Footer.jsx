@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import styles from './Footer.module.css'
-import ASSETS from '../../config/assets'
+import { DENSITY_IMAGES } from '../../config/assets'
 
 const NAV_COLS = [
   {
@@ -77,7 +77,14 @@ export default function Footer() {
         <div className={styles.top}>
           <div className={styles.brand}>
             <Link to="/" aria-label="KJB Solutions home">
-              <img src={ASSETS['logo-white.png']} alt="KJB Solutions" height="38" className={styles.logo} />
+              <img
+                src={DENSITY_IMAGES.whiteLogo.src}
+                srcSet={DENSITY_IMAGES.whiteLogo.srcSet}
+                alt="KJB Solutions"
+                height="38"
+                className={styles.logo}
+                decoding="async"
+              />
             </Link>
             <p className={styles.tagline}>
               Providing IT services to<br />the federal government.
