@@ -6,17 +6,18 @@ const NAV_COLS = [
   {
     heading: 'What We Do',
     links: [
-      { label: 'Program Management', to: '/solutions' },
-      { label: 'Software Development', to: '/solutions' },
-      { label: 'Infrastructure & Consulting', to: '/solutions' },
+      { label: 'Program Management', to: '/solutions#program-management' },
+      { label: 'Software Development', to: '/solutions#software-development' },
+      { label: 'Infrastructure & Consulting', to: '/solutions#infrastructure-consulting' },
       { label: 'Past Projects', to: '/solutions#past-projects' },
     ],
   },
   {
     heading: 'Company',
     links: [
-      { label: 'Who We Are', to: '/about' },
+      { label: 'Who We Are', to: '/about#who-we-are' },
       { label: 'Mission & Values', to: '/about#mission-vision' },
+      { label: 'Core Values', to: '/about#core-values' },
       { label: 'Our Partners', to: '/about#partners' },
       { label: 'Careers', to: '/careers' },
       { label: 'Open Positions', to: '/careers#open-positions' },
