@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import sharp from 'sharp'
 
@@ -182,10 +182,6 @@ await generateDensitySet({
   widths: [133, 266],
 })
 
-await writeFile(
-  resolve(projectRoot, 'src/config/blobAssetUrls.js'),
-  'const BLOB_ASSET_URLS = {}\n\nexport default BLOB_ASSET_URLS\n',
-)
-
 console.log(`Prepared optimized assets in ${outputDir}`)
+console.log('Run `npm run assets:upload` to push to Vercel Blob and update blobAssetUrls.js')
 

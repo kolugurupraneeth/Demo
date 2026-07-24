@@ -5,3 +5,12 @@ dist/
 *.local
 run-demo-screenshot.png
 screenshot-*.png
+
+# Guardrail: keep Markdown notes/docs out of commits
+*.md
+
+# Generated image assets — served from Vercel Blob CDN.
+# Run `npm run assets:prepare && npm run assets:upload` to regenerate.
+# The manifest (src/config/blobAssetUrls.js) stays in git; the binaries don't.
+public/assets/
+
