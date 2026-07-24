@@ -9,7 +9,7 @@ const NAV = [
   {
     label: 'Who We Are', to: '/about',
     children: [
-      { label: 'About Ken Brunetto', to: '/about' },
+      { label: 'About Ken Brunetto', to: '/about#who-we-are' },
       { label: 'Mission & Vision', to: '/about#mission-vision' },
       { label: 'Core Values', to: '/about#core-values' },
       { label: 'Our Partners', to: '/about#partners' },

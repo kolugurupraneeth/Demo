@@ -141,11 +141,15 @@
   font-size: 0.875rem;
   font-weight: 400;
   color: var(--text-mid) !important;
-  transition: background 0.12s ease, color 0.12s ease;
+  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
   border-bottom: 1px solid var(--border);
 }
 .dropdown li:last-child .dropLink { border-bottom: none; }
-.dropLink:hover { background: var(--off-white) !important; color: var(--navy) !important; }
+.dropLink:hover {
+  background: rgba(0, 42, 92, 0.07) !important;
+  color: var(--navy) !important;
+  box-shadow: inset 3px 0 0 var(--orange);
+}
 
 /* ─── Hamburger ──────────────────────────────────────────────────────── */
 .hamburger {
