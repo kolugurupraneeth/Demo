@@ -34,7 +34,7 @@ const NAV = [
   {
     label: 'Connect', to: '/connect',
     children: [
-      { label: 'Social Media', to: '/connect' },
+      { label: 'Social Media', to: '/connect#social' },
       { label: 'News & Updates', to: '/connect#news' },
     ],
   },
