@@ -44,7 +44,7 @@ function formatText(text) {
   })
 }
 
-const SESSION_MSG_LIMIT = 20 // max user turns per page load
+const SESSION_MSG_LIMIT = 50 // max user turns per page load
 
 export default function KJBChat() {
   const [open, setOpen] = useState(false)
