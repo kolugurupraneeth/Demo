@@ -115,6 +115,14 @@
   background: #f4f6fa;
   border-radius: 8px;
   border-left: 3px solid var(--orange);
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s var(--ease-out), border-color 0.2s ease;
+  cursor: default;
+}
+.highlight:hover {
+  background: var(--white);
+  box-shadow: 0 4px 20px rgba(0, 42, 92, 0.1);
+  transform: translateY(-2px);
+  border-color: var(--crimson);
 }
 
 .highlightValue {
@@ -124,6 +132,10 @@
   color: var(--navy);
   line-height: 1;
   padding-top: 0.15rem;
+  transition: color 0.2s ease;
+}
+.highlight:hover .highlightValue {
+  color: var(--crimson);
 }
 
 .highlightBody {

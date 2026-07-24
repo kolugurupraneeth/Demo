@@ -168,7 +168,6 @@ export default function WhoWeAre() {
 
           {/* Featured first value */}
           <Reveal className={styles.coreFeatured}>
-            <span className={styles.coreFeaturedNum}>01</span>
             <div className={styles.coreFeaturedBody}>
               <strong className={styles.coreFeaturedName}>Service First</strong>
               <p className={styles.coreFeaturedDesc}>
@@ -182,7 +181,6 @@ export default function WhoWeAre() {
           <div className={styles.coreGrid}>
             {CORE_VALUES.slice(1).map((v, i) => (
               <Reveal key={v.name} delay={i * 55} className={styles.coreItem}>
-                <span className={styles.coreNum}>{String(i + 2).padStart(2, '0')}</span>
                 <div>
                   <strong className={styles.coreName}>{v.name}</strong>
                   <p className={styles.coreDesc}>{v.desc}</p>

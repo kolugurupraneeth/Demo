@@ -1,58 +1,9 @@
+import { Link } from 'react-router-dom'
 import Reveal from '../Reveal/Reveal'
+import { JOBS } from '../../data/jobs'
 import styles from './CareersCallout.module.css'
 
 const EMAIL = 'kbjsolutions@kjbsolution.com'
-
-const JOBS = [
-  {
-    title: 'Program Manager — Federal IT',
-    dept: 'Program Management',
-    location: 'DC Metro / Remote',
-    type: 'Full-Time',
-    reqs: [
-      '5+ years federal IT program management',
-      'Experience with VA or DoD programs',
-      'PMP or equivalent preferred',
-      'Active security clearance preferred',
-    ],
-  },
-  {
-    title: 'Software Developer — VA Systems',
-    dept: 'Software Development',
-    location: 'Remote',
-    type: 'Full-Time',
-    reqs: [
-      '3+ years software development in federal health systems',
-      'SDLC experience (design through production ops)',
-      'VistA, HL7, or FHIR experience a plus',
-      'Ability to obtain clearance',
-    ],
-  },
-  {
-    title: 'DevSecOps Engineer',
-    dept: 'Infrastructure & Security',
-    location: 'Remote / Hybrid',
-    type: 'Full-Time',
-    reqs: [
-      'CI/CD pipeline design and management',
-      'FIPS 140-2 and federal security compliance',
-      'Experience with NIST RMF or ATO processes',
-      'Active security clearance preferred',
-    ],
-  },
-  {
-    title: 'IT Infrastructure Consultant',
-    dept: 'Infrastructure & Consulting',
-    location: 'DC Metro / Remote',
-    type: 'Full-Time',
-    reqs: [
-      'SOA, middleware, and enterprise integration',
-      'Production operations in federal environments',
-      'Network and systems administration experience',
-      'Clearance eligible',
-    ],
-  },
-]
 
 export default function CareersCallout() {
   return (
@@ -91,7 +42,7 @@ export default function CareersCallout() {
 
           <div className={styles.jobsGrid}>
             {JOBS.map((job, i) => (
-              <Reveal key={job.title} delay={i * 80} className={styles.jobCard}>
+              <Reveal key={job.id} delay={i * 80} className={styles.jobCard}>
                 <div className={styles.jobTop}>
                   <div>
                     <p className={styles.jobDept}>{job.dept}</p>
@@ -122,15 +73,15 @@ export default function CareersCallout() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href={`mailto:${EMAIL}?subject=Application: ${job.title}`}
+                <Link
+                  to={`/careers/apply/${job.id}`}
                   className={`btn btn-navy ${styles.applyBtn}`}
                 >
                   Apply Now
                   <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                     <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                </a>
+                </Link>
               </Reveal>
             ))}
           </div>

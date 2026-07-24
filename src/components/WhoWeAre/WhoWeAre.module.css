@@ -177,11 +177,22 @@
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.11);
   border-radius: 16px;
+  transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s var(--ease-out), box-shadow 0.22s ease;
+}
+.mvCard:hover {
+  background: rgba(255,255,255,0.11);
+  border-color: rgba(255,255,255,0.22);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
 }
 
 .mvVision {
   background: rgba(232,136,0,0.09);
   border-color: rgba(232,136,0,0.28);
+}
+.mvVision:hover {
+  background: rgba(232,136,0,0.16);
+  border-color: rgba(232,136,0,0.45);
 }
 
 .mvLabel {
@@ -244,17 +255,6 @@
   color: var(--white);
 }
 
-.coreFeaturedNum {
-  font-family: var(--font-head);
-  font-size: clamp(3.5rem, 7vw, 6rem);
-  font-weight: 900;
-  color: rgba(232,136,0,0.35);
-  letter-spacing: -0.05em;
-  line-height: 1;
-  flex-shrink: 0;
-  user-select: none;
-}
-
 .coreFeaturedBody {
   display: flex;
   flex-direction: column;
@@ -306,17 +306,6 @@
 /* Right column items get a left border */
 .coreItem:nth-child(even) {
   border-left: 1px solid var(--border);
-}
-
-.coreNum {
-  font-family: var(--font-head);
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--crimson);
-  flex-shrink: 0;
-  margin-top: 0.25rem;
-  min-width: 1.75rem;
 }
 
 .coreName {

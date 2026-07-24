@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import SolutionsPage from './pages/SolutionsPage'
 import CareersPage from './pages/CareersPage'
+import JobApplyPage from './pages/JobApplyPage'
 import ConnectPage from './pages/ConnectPage'
 import ContactPage from './pages/ContactPage'
 
@@ -20,6 +21,7 @@ function AppShell() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/solutions" element={<SolutionsPage />} />
           <Route path="/careers" element={<CareersPage />} />
+          <Route path="/careers/apply/:jobSlug" element={<JobApplyPage />} />
           <Route path="/connect" element={<ConnectPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
