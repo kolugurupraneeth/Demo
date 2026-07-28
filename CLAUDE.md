@@ -49,14 +49,38 @@ Fonts: **Exo 2** (headings, nav) · **Open Sans** (body) — both from Google Fo
 
 Global tokens in `src/index.css`. CSS Modules per component. Vanilla JS hooks — no component libraries, no Tailwind.
 
-## FrontendCraft Agent
+## Skills
 
-This repo uses the **impeccable** skill (`.claude/skills/impeccable/`). All design and build work should run through it. Entry point for context: `node .claude/skills/impeccable/scripts/context.mjs`.
+All skills live in `.claude/skills/`. Use the right skill for the task:
 
-Route requests through the right command:
-- Build a feature → `/impeccable craft [feature]`
-- Design direction → `/impeccable shape [feature]`
-- Polish → `/impeccable polish [target]`
-- Animate → `/impeccable animate [target]`
-- Mobile fix → `/impeccable adapt [target]`
-- Production hardening → `/impeccable harden [target]`
+### Frontend / Design
+- **impeccable** — visual design, polish, animation, layout, and all UX work. Entry: `node .claude/skills/impeccable/scripts/context.mjs`
+  - Build feature → `/impeccable craft [feature]`
+  - Design direction → `/impeccable shape [feature]`
+  - Polish → `/impeccable polish [target]`
+  - Animate → `/impeccable animate [target]`
+  - Mobile fix → `/impeccable adapt [target]`
+  - Production hardening → `/impeccable harden [target]`
+- **react-patterns** — hooks discipline, component composition, CSS Modules, Reveal pattern
+- **accessibility** — WCAG 2.2 Level AA, ARIA, keyboard nav, color contrast; critical for VA/federal clients
+
+### Build & Deployment
+- **vite-patterns** — `vite.config.js`, env vars, plugin setup, build optimization
+- **deployment** — Vercel config, serverless functions, env var management, pre-deploy checklist
+- **run-demo** — run, screenshot, and smoke-test the site locally
+
+### Quality & Security
+- **performance** — Core Web Vitals, bundle size, image optimization, render efficiency
+- **security-review** — Claude API key protection, rate limiting, input validation, CSP headers
+
+## Agents
+
+Specialized subagents in `.claude/agents/`:
+
+| Agent | When to invoke |
+|-------|---------------|
+| `frontend-craft` | All UI design, build, and polish work (uses impeccable skill) |
+| `react-reviewer` | After writing or modifying any `.jsx` file |
+| `site-verifier` | Confirm the site renders correctly in a browser |
+| `fix-it` | Apply minimal safe patches after diagnosis |
+| `troubleshoot` | Investigate unknown failures or configuration problems |
