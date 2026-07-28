@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
-import { getJobById } from '../data/jobs'
+import { getJobById, JOB_LEGAL } from '../data/jobs'
 import styles from './JobDetailPage.module.css'
 
 export default function JobDetailPage() {
@@ -196,6 +196,16 @@ export default function JobDetailPage() {
               </ul>
             </section>
           )}
+
+          {/* Legal disclosures */}
+          <section className={styles.legalSection}>
+            {JOB_LEGAL.map(item => (
+              <div key={item.heading} className={styles.legalItem}>
+                <h3 className={styles.legalHeading}>{item.heading}</h3>
+                <p className={styles.legalBody}>{item.body}</p>
+              </div>
+            ))}
+          </section>
 
           {/* Bottom CTA */}
           <div className={styles.bottomCta}>

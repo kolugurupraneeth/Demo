@@ -189,3 +189,23 @@ export const JOBS = [
 export function getJobById(id) {
   return JOBS.find(j => j.id === id) ?? null
 }
+
+// Shared legal disclosures — identical across all KJB job postings
+export const JOB_LEGAL = [
+  {
+    heading: 'Conditions of Employment',
+    body: 'Employment and continued employment are contingent upon: (1) proof of identity and authorization to work in the United States; (2) successful completion of any required suitability and background investigation, including a favorable fingerprint-based check; (3) client acceptance of the candidate\'s qualifications, where required; and (4) completion of any required systems-access provisioning, including PIV credentialing and mandatory training.',
+  },
+  {
+    heading: 'Equal Employment Opportunity',
+    body: 'KJB Solutions LLC is an Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, age, disability, protected veteran status, or any other characteristic protected by applicable federal, state, or local law.',
+  },
+  {
+    heading: 'Reasonable Accommodation',
+    body: 'KJB Solutions is committed to providing reasonable accommodations to qualified individuals with disabilities. If you require an accommodation to participate in the application or interview process, or to perform the essential functions of this role, please contact Human Resources.',
+  },
+  {
+    heading: 'Disclaimer',
+    body: 'This job description is intended to describe the general nature and level of work being performed. It is not intended to be an exhaustive list of all duties, responsibilities, or qualifications. Duties may change at any time with or without notice. Employment with KJB Solutions is at-will.',
+  },
+]

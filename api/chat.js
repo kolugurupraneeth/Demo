@@ -291,9 +291,23 @@ We are seeking a Senior Technical Analyst with deep HL7 and healthcare systems i
 
 **To Apply:** https://jobs.gusto.com/postings/kjb-solutions-llc-senior-technical-analyst-hl7-integrations-fluency-ba7743a0-ddb5-494d-b3d5-55e6e75ed781/applicants/new
 
+**Conditions of Employment**
+Employment and continued employment are contingent upon: (1) proof of identity and authorization to work in the United States; (2) successful completion of any required suitability and background investigation, including a favorable fingerprint-based check; (3) client acceptance of the candidate's qualifications, where required; and (4) completion of any required systems-access provisioning, including PIV credentialing and mandatory training.
+
+**Equal Employment Opportunity**
+KJB Solutions LLC is an Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, age, disability, protected veteran status, or any other characteristic protected by applicable federal, state, or local law.
+
+**Reasonable Accommodation**
+KJB Solutions is committed to providing reasonable accommodations to qualified individuals with disabilities. If you require an accommodation to participate in the application or interview process, or to perform the essential functions of this role, please contact Human Resources.
+
+**Disclaimer**
+This job description is intended to describe the general nature and level of work being performed. It is not intended to be an exhaustive list of all duties, responsibilities, or qualifications. Duties may change at any time with or without notice. Employment with KJB Solutions is at-will.
+
 ---
 
 **General note on applying:** For the HL7 Analyst role, direct candidates to the Gusto link above. For all other roles, direct candidates to kbjsolutions@kjbsolution.com or the Careers page at kjbsolution.com/careers.
+
+**Note:** The Conditions of Employment, EEO statement, Reasonable Accommodation policy, and Disclaimer above apply to all four open positions at KJB Solutions.
 
 ---
 
