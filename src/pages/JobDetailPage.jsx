@@ -48,6 +48,15 @@ export default function JobDetailPage() {
                 </svg>
                 {job.type}
               </span>
+              {job.compensation && (
+                <span className={styles.metaTagSalary}>
+                  <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
+                    <circle cx="8" cy="8" r="6" strokeLinecap="round"/>
+                    <path d="M8 5v1m0 4v1M6.5 7a1.5 1.5 0 0 1 3 0c0 1-1.5 1.5-1.5 2.5" strokeLinecap="round"/>
+                  </svg>
+                  {job.compensation}
+                </span>
+              )}
             </div>
             <ApplyBtn job={job} className={styles.headerApplyBtn} />
           </div>
@@ -71,6 +80,13 @@ export default function JobDetailPage() {
             </ul>
           </div>
 
+          {job.compensation && (
+            <div className={styles.sideCard}>
+              <h2 className={styles.sideHeading}>Compensation</h2>
+              <p className={styles.sideCompensation}>{job.compensation}</p>
+            </div>
+          )}
+
           <div className={styles.sideCard}>
             <h2 className={styles.sideHeading}>Why KJB?</h2>
             <p className={styles.sideText}>
@@ -84,7 +100,7 @@ export default function JobDetailPage() {
             <ApplyBtn job={job} />
             <p className={styles.sideApplyNote}>
               {job.applyUrl
-                ? 'Opens our official Gusto application portal.'
+                ? 'Submits directly to the KJB recruiting team.'
                 : 'Submits directly to the KJB recruiting team.'}
             </p>
           </div>
@@ -93,18 +109,26 @@ export default function JobDetailPage() {
         {/* Main content */}
         <main className={styles.main} id="job-detail">
 
-          {job.description?.length > 0 && (
+          {/* About / Company intro + Position Summary */}
+          {(job.companyIntro || job.positionSummary) && (
             <section className={styles.section}>
               <h2 className={styles.sectionHeading}>About This Role</h2>
-              {job.description.map((para, i) => (
-                <p key={i} className={styles.para}>{para}</p>
-              ))}
+              {job.companyIntro && (
+                <p className={styles.para}>{job.companyIntro}</p>
+              )}
+              {job.positionSummary && (
+                <>
+                  <h3 className={styles.subHeading}>Position Summary</h3>
+                  <p className={styles.para}>{job.positionSummary}</p>
+                </>
+              )}
             </section>
           )}
 
+          {/* Responsibilities */}
           {job.responsibilities?.length > 0 && (
             <section className={styles.section}>
-              <h2 className={styles.sectionHeading}>Responsibilities</h2>
+              <h2 className={styles.sectionHeading}>Essential Duties &amp; Responsibilities</h2>
               <ul className={styles.bulletList} aria-label="Responsibilities">
                 {job.responsibilities.map(r => (
                   <li key={r} className={styles.bulletItem}>
@@ -116,6 +140,7 @@ export default function JobDetailPage() {
             </section>
           )}
 
+          {/* Qualifications */}
           {job.qualifications && (
             <section className={styles.section}>
               <h2 className={styles.sectionHeading}>Qualifications</h2>
@@ -150,6 +175,28 @@ export default function JobDetailPage() {
             </section>
           )}
 
+          {/* Compensation & Benefits */}
+          {job.benefits?.length > 0 && (
+            <section className={styles.section}>
+              <h2 className={styles.sectionHeading}>Compensation &amp; Benefits</h2>
+              {job.compensation && (
+                <p className={styles.salaryDisplay}>{job.compensation}</p>
+              )}
+              <ul className={styles.benefitsList} aria-label="Benefits">
+                {job.benefits.map(b => (
+                  <li key={b} className={styles.benefitItem}>
+                    <span className={styles.benefitCheck} aria-hidden="true">
+                      <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+                        <path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
           {/* Bottom CTA */}
           <div className={styles.bottomCta}>
             <div className={styles.bottomCtaInner}>
@@ -171,13 +218,12 @@ export default function JobDetailPage() {
 function ApplyBtn({ job, className = '' }) {
   const isExternal = Boolean(job.applyUrl)
   const href = job.applyUrl ?? `/careers/apply/${job.id}`
-
   const cls = `btn btn-navy ${styles.applyBtn} ${className}`.trim()
 
   if (isExternal) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>
-        Apply on Gusto
+        Apply
         <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
           <path d="M6 3H3v10h10v-3M13 3l-6 6M10 3h3v3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
