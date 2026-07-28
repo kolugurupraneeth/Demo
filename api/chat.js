@@ -124,19 +124,176 @@ KJB collaborates with the following industry partners to deliver mission-critica
 
 ## Open Positions (Current)
 
-1. **Program Manager — Federal IT** (Program Management) — DC Metro / Remote, Full-Time
-   Requirements: 5+ years federal IT program management, experience with VA or DoD programs, PMP or equivalent preferred, active security clearance preferred.
+There are currently 4 open positions. Each listing below includes full job details.
 
-2. **Software Developer — VA Systems** (Software Development) — Remote, Full-Time
-   Requirements: 3+ years software development in federal health systems, SDLC experience (design through production ops), VistA / HL7 / FHIR experience a plus, ability to obtain clearance.
+---
 
-3. **DevSecOps Engineer** (Infrastructure & Security) — Remote / Hybrid, Full-Time
-   Requirements: CI/CD pipeline design and management, FIPS 140-2 and federal security compliance, experience with NIST RMF or ATO processes, active security clearance preferred.
+### 1. Program Manager — Federal IT
+**Department:** Program Management | **Location:** DC Metro / Remote | **Type:** Full-Time
 
-4. **IT Infrastructure Consultant** (Infrastructure & Consulting) — DC Metro / Remote, Full-Time
-   Requirements: SOA, middleware, and enterprise integration, production operations in federal environments, network and systems administration experience, clearance eligible.
+**About This Role**
+KJB Solutions LLC is a Virginia-based technology and professional services firm that supports federal health IT modernization, including mission-critical systems for the U.S. Department of Veterans Affairs. Our engineers, architects, and analysts design, build, and sustain the secure, high-availability systems that exchange health, benefits, and administrative data across government and partner systems. We are a focused team of experienced technologists who value technical depth, ownership, and meaningful impact on systems that serve Veterans every day. We offer a fully remote work environment, competitive compensation, and a comprehensive benefits package built to support our people and their families.
 
-To apply or send a resume: kbjsolutions@kjbsolution.com
+**Position Summary**
+We are seeking an experienced Program Manager to lead federal IT contracts at the Department of Veterans Affairs and across the civilian agency landscape. You will own end-to-end program delivery — from contract kickoff through closeout — ensuring scope, schedule, and budget integrity while building lasting relationships with government clients.
+
+**Essential Duties & Responsibilities**
+- Lead program delivery across active VA and federal IT contracts
+- Manage scope, schedule, budget, and risk across multiple concurrent work streams
+- Serve as primary point of contact for contracting officer representatives (CORs) and program officers
+- Build and maintain detailed project plans, status reports, and deliverable tracking
+- Coordinate across internal technical teams, subcontractors, and government stakeholders
+- Support business development including proposal writing and technical solutioning
+
+**Required Qualifications**
+- 5+ years federal IT program management experience
+- Proven record managing VA or DoD programs end-to-end
+- PMP certification or equivalent credential
+- Experience with FAR/DFARS contract management
+- U.S. citizenship required; clearance eligibility required
+
+**Preferred Qualifications**
+- Active Secret or higher security clearance
+- VA program experience (VBA, VHA, or NCA)
+- Agile / SAFe program management experience
+- Veteran status — KJB is committed to veteran-first hiring
+
+**To Apply:** Visit kjbsolution.com/careers or email kbjsolutions@kjbsolution.com
+
+---
+
+### 2. Software Developer — VA Systems
+**Department:** Software Development | **Location:** Remote | **Type:** Full-Time
+
+**About This Role**
+KJB Solutions LLC is a Virginia-based technology and professional services firm that supports federal health IT modernization, including mission-critical systems for the U.S. Department of Veterans Affairs. Our engineers, architects, and analysts design, build, and sustain the secure, high-availability systems that exchange health, benefits, and administrative data across government and partner systems. We are a focused team of experienced technologists who value technical depth, ownership, and meaningful impact on systems that serve Veterans every day. We offer a fully remote work environment, competitive compensation, and a comprehensive benefits package built to support our people and their families.
+
+**Position Summary**
+KJB Solutions is hiring a Software Developer to build and maintain mission-critical health IT systems at the Department of Veterans Affairs. You will contribute across the full software development lifecycle — from requirements and design through coding, testing, and production support — on systems that directly impact veteran care delivery.
+
+**Essential Duties & Responsibilities**
+- Design, develop, test, and deploy software solutions for VA health IT systems
+- Support integration with VistA, CPRS, and other VA enterprise platforms
+- Participate in Agile ceremonies: sprint planning, standups, retrospectives, and demos
+- Write clean, maintainable code following VA security and coding standards
+- Contribute to code reviews, technical documentation, and system design discussions
+- Troubleshoot production issues and implement root-cause fixes
+
+**Required Qualifications**
+- 3+ years software development experience in federal health systems
+- Full SDLC experience from design through production operations
+- Proficiency in at least one: Java, Python, JavaScript, or .NET
+- Experience with secure coding practices and federal security standards
+- Ability to obtain federal public trust clearance
+
+**Preferred Qualifications**
+- VistA, HL7, or FHIR development experience
+- Familiarity with VA DevSecOps pipeline (GitHub, Jenkins, SonarQube)
+- Active clearance at Public Trust or higher
+- Veteran status — KJB is committed to veteran-first hiring
+
+**To Apply:** Visit kjbsolution.com/careers or email kbjsolutions@kjbsolution.com
+
+---
+
+### 3. DevSecOps Engineer
+**Department:** Infrastructure & Security | **Location:** Remote / Hybrid | **Type:** Full-Time
+
+**About This Role**
+KJB Solutions LLC is a Virginia-based technology and professional services firm that supports federal health IT modernization, including mission-critical systems for the U.S. Department of Veterans Affairs. Our engineers, architects, and analysts design, build, and sustain the secure, high-availability systems that exchange health, benefits, and administrative data across government and partner systems. We are a focused team of experienced technologists who value technical depth, ownership, and meaningful impact on systems that serve Veterans every day. We offer a fully remote work environment, competitive compensation, and a comprehensive benefits package built to support our people and their families.
+
+**Position Summary**
+KJB Solutions is seeking a DevSecOps Engineer to design, build, and operate secure CI/CD pipelines for federal IT programs. You will embed security throughout the software delivery pipeline — from code commit to production deployment — ensuring our VA and federal clients meet ATO requirements without sacrificing deployment velocity.
+
+**Essential Duties & Responsibilities**
+- Design and manage CI/CD pipelines for federal IT delivery teams
+- Implement and maintain FIPS 140-2 compliant security controls in the pipeline
+- Support NIST RMF processes including ATO documentation and continuous monitoring
+- Automate security scanning, compliance checks, and vulnerability remediation
+- Operate and maintain infrastructure across cloud and on-prem environments
+- Partner with development teams to embed security practices from the start
+- Maintain security documentation required for federal audits and assessments
+
+**Required Qualifications**
+- Hands-on CI/CD pipeline design and management (Jenkins, GitLab CI, GitHub Actions)
+- FIPS 140-2 and federal security compliance experience
+- Working knowledge of NIST RMF or federal ATO processes
+- Experience with container orchestration (Kubernetes, Docker)
+- U.S. citizenship required; clearance eligibility required
+
+**Preferred Qualifications**
+- Active Secret or TS/SCI clearance
+- FedRAMP authorization experience
+- Security certifications: CISSP, Security+, or equivalent
+- Experience with VA or DoD cloud environments (AWS GovCloud, Azure Government)
+- Veteran status — KJB is committed to veteran-first hiring
+
+**To Apply:** Visit kjbsolution.com/careers or email kbjsolutions@kjbsolution.com
+
+---
+
+### 4. Senior Technical Analyst — HL7 Integrations ⭐ FEATURED OPENING
+**Department:** Software Development | **Location:** Remote | **Type:** Full-Time | **Salary:** $120,000 – $140,000 / year
+
+**About This Role**
+KJB Solutions LLC is a Virginia-based technology and professional services firm that supports federal health IT modernization, including mission-critical systems for the U.S. Department of Veterans Affairs. Our engineers, architects, and analysts design, build, and sustain the secure, high-availability systems that exchange health, benefits, and administrative data across government and partner systems. We are a focused team of experienced technologists who value technical depth, ownership, and meaningful impact on systems that serve Veterans every day. We offer a fully remote work environment, competitive compensation, and a comprehensive benefits package built to support our people and their families.
+
+**Position Summary**
+We are seeking a Senior Technical Analyst with deep HL7 and healthcare systems integration expertise to support the U.S. Department of Veterans Affairs. This role will serve as the senior technical authority on a team responsible for designing, architecting, testing, and supporting complex interfaces between VA clinical and administrative systems, ensuring reliable, secure, and compliant data exchange across the VA health IT enterprise (including VistA, Cerner Millennium / Oracle Health, and related interface engines). The ideal candidate operates with minimal supervision, leads integration design decisions, mentors junior and mid-level analysts, and is comfortable serving as a trusted technical point of contact with VA clinical stakeholders and program leadership.
+
+**Essential Duties & Responsibilities**
+- Lead the analysis, design, architecture, build, testing, and maintenance of HL7 (v2.x and/or FHIR) interfaces between VA clinical / administrative systems and internal or external partner systems, with minimal oversight.
+- Serve as the primary technical liaison between clinical stakeholders, business analysts, and development teams, translating complex functional and interoperability requirements into robust interface specifications and architecture decisions.
+- Mentor and provide technical guidance to junior and mid-level analysts, and review their interface designs, code, and documentation for quality and standards compliance.
+- Lead technical design reviews and provide subject-matter expertise during proposal support, sprint planning, and architecture discussions with VA and program stakeholders.
+- Configure, monitor, and troubleshoot interface engines (e.g. Rhapsody, Cloverleaf, Mirth, Ensemble, or VA-specific middleware) to ensure accurate, timely message routing and transformation.
+- Own root-cause analysis of the most complex interface failures, data discrepancies, and message errors; drive corrective and preventive actions within defined service levels; serve as the escalation point for critical incidents.
+- Support integration testing — unit, system, interface, and end-to-end — in coordination with VA test environments and release schedules.
+- Document interface specifications, data mapping, message formats, system architecture diagrams, and standard operating procedures (SOPs).
+- Ensure all integration work complies with VA information security requirements, HIPAA, and applicable federal health data standards (e.g. HL7, FHIR, C-CDA, X12).
+- Participate in change management, configuration management, and release processes per VA and program governance requirements.
+- Support Section 508 compliance and VA Technical Reference Model (TRM) standards where applicable.
+- Provide status reporting, risk identification, and technical input to Program Management for program deliverables.
+- Provide on-call or after-hours support for critical interface issues as required.
+
+**Required Qualifications**
+- Bachelor's degree in Computer Science, Health Informatics, Information Systems, or a related field.
+- Minimum 7–10+ years of progressive experience as a technical, systems, or interface analyst supporting healthcare IT integrations, including experience leading integration efforts on complex, multi-system projects.
+- Demonstrated deep fluency and hands-on mastery of HL7 v2.x messaging (ADT, ORM, ORU, SIU, DFT, and similar), and strong working knowledge of HL7 FHIR.
+- Extensive hands-on experience with one or more interface engines or integration platforms (e.g. Rhapsody, Cloverleaf, Mirth Connect, Ensemble / InterSystems, BizTalk), including architecture and configuration ownership.
+- Strong working knowledge of healthcare data standards such as C-CDA, X12 (EDI), DICOM, or LOINC / SNOMED / ICD-10 code sets.
+- Advanced experience with SQL and relational databases for data validation, extraction, performance troubleshooting, and root-cause analysis.
+- Direct experience with VA systems (VistA, CPRS, Oracle Health / Cerner Millennium) or comparable large-scale federal / EHR environments is strongly preferred.
+- Demonstrated ability to lead technical work streams, mentor junior and mid-level staff, and operate independently with minimal supervision.
+- Strong understanding of SDLC, Agile / Scrum methodologies, and integration testing practices.
+- Excellent written and verbal communication skills, with the ability to lead technical discussions with senior stakeholders.
+- U.S. Citizenship is required.
+- Ability to obtain and maintain a Public Trust or higher background investigation.
+
+**Preferred Qualifications**
+- Prior direct experience on a VA, DoD, or other federal health IT contract, ideally in a lead or senior analyst capacity.
+- Experience supporting proposal efforts, technical writing for deliverables, or acting as a technical lead on a federal task order.
+- Experience with VA interoperability initiatives (e.g. VA/DoD data sharing, the Joint Health Information Exchange, or VistA Exchange).
+- HL7 or FHIR certification (e.g. the HL7 FHIR Proficiency Certificate) or a relevant health IT certification such as CPHIMS or CAHIMS.
+- Experience with ITIL-based service management (incident, problem, and change management) in a federal environment.
+- Familiarity with cloud-hosted integration environments such as AWS GovCloud or Azure Government.
+- Active or previously held federal government clearance or investigation (e.g. Public Trust, MBI, or NACI).
+
+**Compensation & Benefits**
+- Salary: $120,000 – $140,000 / year
+- Company-paid medical, dental, and vision insurance
+- 401(k) retirement plan with 5% company match, eligible immediately
+- 160 hours of Flexible Time Off (FTO) per year
+- 88 hours (11 days) of paid federal holidays per year
+- Company-provided short-term and long-term disability coverage
+- Reimbursement for pre-approved, work-related travel
+- 100% remote work environment
+
+**To Apply:** https://jobs.gusto.com/postings/kjb-solutions-llc-senior-technical-analyst-hl7-integrations-fluency-ba7743a0-ddb5-494d-b3d5-55e6e75ed781/applicants/new
+
+---
+
+**General note on applying:** For the HL7 Analyst role, direct candidates to the Gusto link above. For all other roles, direct candidates to kbjsolutions@kjbsolution.com or the Careers page at kjbsolution.com/careers.
 
 ---
 
