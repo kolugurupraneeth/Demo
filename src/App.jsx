@@ -1,8 +1,10 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Nav from './components/Nav/Nav'
+import KJBAIBar from './components/KJBAIBar/KJBAIBar'
 import Footer from './components/Footer/Footer'
 import ScrollToHash from './components/ScrollToHash/ScrollToHash'
 import KJBChat from './components/KJBChat/KJBChat'
+import { useTheme } from './hooks/useTheme'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import SolutionsPage from './pages/SolutionsPage'
@@ -12,11 +14,12 @@ import JobApplyPage from './pages/JobApplyPage'
 import ConnectPage from './pages/ConnectPage'
 import ContactPage from './pages/ContactPage'
 
-function AppShell() {
+function AppShell({ theme, toggleTheme }) {
   const { pathname } = useLocation()
   return (
     <>
-      <Nav />
+      <KJBAIBar />
+      <Nav theme={theme} toggleTheme={toggleTheme} />
       <main key={pathname} id="main-content">
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -36,10 +39,11 @@ function AppShell() {
 }
 
 export default function App() {
+  const [theme, toggleTheme] = useTheme()
   return (
     <BrowserRouter>
       <ScrollToHash />
-      <AppShell />
+      <AppShell theme={theme} toggleTheme={toggleTheme} />
     </BrowserRouter>
   )
 }

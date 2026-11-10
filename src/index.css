@@ -30,12 +30,24 @@ html { scroll-behavior: smooth; }
 
   --section-pad: clamp(4rem, 8vw, 7rem);
   --container:   1200px;
+  --topbar-h:    2.125rem;
+}
+
+/* ─── Dark mode ──────────────────────────────────────────────────────── */
+[data-theme="dark"] {
+  --off-white:   #0d1526;
+  --surface:     #111e35;
+  --text:        #d8e4f5;
+  --text-mid:    #8098c0;
+  --text-faded:  #516080;
+  --border:      #1e2d47;
+  --border-mid:  #263858;
 }
 
 /* ─── Base ───────────────────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: calc(var(--topbar-h) + 80px);
   -webkit-text-size-adjust: 100%;
 }
 

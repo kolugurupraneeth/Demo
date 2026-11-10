@@ -49,25 +49,68 @@ function ChevronIcon() {
   )
 }
 
-export default function Nav() {
+function SunIcon() {
+  return (
+    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true">
+      <circle cx="8.5" cy="8.5" r="3.25" fill="currentColor" />
+      <line x1="8.5" y1="1"   x2="8.5" y2="3"   stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <line x1="8.5" y1="14"  x2="8.5" y2="16"  stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <line x1="1"   y1="8.5" x2="3"   y2="8.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <line x1="14"  y1="8.5" x2="16"  y2="8.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <line x1="3.5" y1="3.5" x2="4.9" y2="4.9" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <line x1="12.1" y1="12.1" x2="13.5" y2="13.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <line x1="12.1" y1="4.9" x2="13.5" y2="3.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <line x1="3.5" y1="13.5" x2="4.9" y2="12.1" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+function MoonIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path
+        d="M13.5 10.1A6 6 0 0 1 5.9 2.5a6 6 0 1 0 7.6 7.6z"
+        fill="currentColor"
+      />
+    </svg>
+  )
+}
+
+function ThemeToggle({ isDark, onToggle, scrolled }) {
+  return (
+    <button
+      className={`${styles.themeToggle} ${scrolled ? styles.themeToggleScrolled : ''}`}
+      onClick={onToggle}
+      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      title={isDark ? 'Light mode' : 'Dark mode'}
+    >
+      <span className={`${styles.iconWrap} ${isDark ? styles.iconVisible : styles.iconHidden}`}>
+        <SunIcon />
+      </span>
+      <span className={`${styles.iconWrap} ${!isDark ? styles.iconVisible : styles.iconHidden}`}>
+        <MoonIcon />
+      </span>
+    </button>
+  )
+}
+
+export default function Nav({ theme, toggleTheme }) {
   const scrolled = useScrolled(60)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [openDrop, setOpenDrop] = useState(null)
   const navRef = useRef(null)
   const location = useLocation()
+  const isDark = theme === 'dark'
 
-  // Close mobile menu on route change; desktop dropdown closes via its own onClick
   useEffect(() => {
     setMobileOpen(false)
   }, [location.pathname])
 
-  // Lock body scroll when mobile menu open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [mobileOpen])
 
-  // Close dropdown on outside click
   useEffect(() => {
     function onClickOutside(e) {
       if (navRef.current && !navRef.current.contains(e.target)) setOpenDrop(null)
@@ -76,7 +119,6 @@ export default function Nav() {
     return () => document.removeEventListener('mousedown', onClickOutside)
   }, [])
 
-  // Close dropdown on Escape
   useEffect(() => {
     function onKey(e) { if (e.key === 'Escape') { setOpenDrop(null); setMobileOpen(false) } }
     document.addEventListener('keydown', onKey)
@@ -163,6 +205,9 @@ export default function Nav() {
           </ul>
         </nav>
 
+        {/* Theme toggle — always visible */}
+        <ThemeToggle isDark={isDark} onToggle={toggleTheme} scrolled={scrolled} />
+
         {/* Hamburger */}
         <button
           className={`${styles.hamburger} ${mobileOpen ? styles.hamburgerOpen : ''}`}
@@ -221,6 +266,17 @@ export default function Nav() {
               )}
             </li>
           ))}
+
+          {/* Theme toggle in mobile overlay */}
+          <li className={styles.mobileItem}>
+            <button
+              className={styles.mobileThemeBtn}
+              onClick={() => { toggleTheme(); setMobileOpen(false) }}
+            >
+              {isDark ? <SunIcon /> : <MoonIcon />}
+              {isDark ? 'Light Mode' : 'Dark Mode'}
+            </button>
+          </li>
         </ul>
       </div>
     </header>

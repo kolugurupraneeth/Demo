@@ -1,6 +1,6 @@
 .header {
   position: fixed;
-  top: 0;
+  top: var(--topbar-h);
   left: 0;
   right: 0;
   z-index: 500;
@@ -154,6 +154,75 @@
   box-shadow: inset 3px 0 0 var(--orange);
 }
 
+/* ─── Dark mode / scrolled nav overrides ─────────────────────────────── */
+:global([data-theme="dark"]) .header.scrolled {
+  background: #0f1a2e;
+  box-shadow: 0 1px 0 #1e2d47, 0 4px 32px rgba(0,0,0,0.4);
+}
+:global([data-theme="dark"]) .scrolled .link {
+  color: var(--text);
+}
+:global([data-theme="dark"]) .scrolled .link:hover {
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+}
+
+/* ─── Theme toggle button ────────────────────────────────────────────── */
+.themeToggle {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: rgba(255,255,255,0.75);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+.themeToggle:hover {
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+  transform: scale(1.08);
+}
+.themeToggle:active { transform: scale(0.93); }
+.themeToggle:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
+
+.themeToggleScrolled {
+  color: var(--text-mid);
+}
+.themeToggleScrolled:hover {
+  background: var(--off-white);
+  color: var(--navy);
+}
+:global([data-theme="dark"]) .themeToggleScrolled {
+  color: var(--text-mid);
+}
+:global([data-theme="dark"]) .themeToggleScrolled:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--text);
+}
+
+.iconWrap {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease, transform 0.4s var(--ease-out);
+}
+.iconVisible {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+.iconHidden {
+  opacity: 0;
+  transform: scale(0.5) rotate(90deg);
+  pointer-events: none;
+}
+
 /* ─── Hamburger ──────────────────────────────────────────────────────── */
 .hamburger {
   display: none;
@@ -259,6 +328,26 @@
   transition: color 0.15s ease;
 }
 .mobileSubLink:hover { color: var(--orange); }
+
+.mobileThemeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.5);
+  padding: 0.65rem 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.15s ease;
+  margin-top: 0.5rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  width: 100%;
+  justify-content: center;
+}
+.mobileThemeBtn:hover { color: var(--sky); }
 
 /* ─── Responsive ─────────────────────────────────────────────────────── */
 @media (max-width: 820px) {
