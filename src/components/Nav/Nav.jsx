@@ -32,6 +32,9 @@ const NAV = [
     ],
   },
   {
+    label: 'KJB AI', href: 'https://k-jb-f09k1g7yn-kp22.vercel.app/', external: true,
+  },
+  {
     label: 'Connect', to: '/connect',
     children: [
       { label: 'Social Media', to: '/connect#social' },
@@ -165,7 +168,20 @@ export default function Nav({ theme, toggleTheme }) {
               const active = isActive(item)
               return (
                 <li key={item.label} className={item.children ? styles.hasDrop : ''}>
-                  {item.children ? (
+                  {item.external ? (
+                    <a
+                      href={item.href}
+                      className={styles.kjbaiLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="KJB AI — open KJB AI site"
+                    >
+                      <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true" className={styles.kjbaiSpark}>
+                        <path d="M5.5 0.5l1.1 3.1L10 5.5 6.6 6.9 5.5 10.5l-1.1-3.6L1 5.5l3.4-1.4L5.5 0.5z" fill="currentColor" />
+                      </svg>
+                      KJB AI
+                    </a>
+                  ) : item.children ? (
                     <button
                       className={`${styles.link} ${isOpen || active ? styles.linkActive : ''}`}
                       onClick={() => setOpenDrop(prev => prev === item.label ? null : item.label)}
@@ -229,7 +245,20 @@ export default function Nav({ theme, toggleTheme }) {
         <ul className={styles.mobileList}>
           {NAV.map(item => (
             <li key={item.label} className={styles.mobileItem}>
-              {item.children ? (
+              {item.external ? (
+                <a
+                  href={item.href}
+                  className={styles.mobileKjbaiLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  <svg width="13" height="13" viewBox="0 0 11 11" fill="none" aria-hidden="true">
+                    <path d="M5.5 0.5l1.1 3.1L10 5.5 6.6 6.9 5.5 10.5l-1.1-3.6L1 5.5l3.4-1.4L5.5 0.5z" fill="currentColor" />
+                  </svg>
+                  KJB AI
+                </a>
+              ) : item.children ? (
                 <>
                   <button
                     className={styles.mobileGroupBtn}

@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Nav from './components/Nav/Nav'
-import KJBAIBar from './components/KJBAIBar/KJBAIBar'
 import Footer from './components/Footer/Footer'
 import ScrollToHash from './components/ScrollToHash/ScrollToHash'
 import KJBChat from './components/KJBChat/KJBChat'
@@ -18,7 +17,6 @@ function AppShell({ theme, toggleTheme }) {
   const { pathname } = useLocation()
   return (
     <>
-      <KJBAIBar />
       <Nav theme={theme} toggleTheme={toggleTheme} />
       <main key={pathname} id="main-content">
         <Routes>

@@ -47,7 +47,7 @@ html { scroll-behavior: smooth; }
 /* ─── Base ───────────────────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--topbar-h) + 80px);
+  scroll-padding-top: 80px;
   -webkit-text-size-adjust: 100%;
 }
 
