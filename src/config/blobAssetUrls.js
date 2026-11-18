@@ -1,4 +1,5 @@
 const ASSETS = {
+  "brian-finn.jpg": "https://hiedqvskzea5mr20.public.blob.vercel-storage.com/kjb-assets/brian-finn.jpg",
   "handshake-1200.avif": "https://hiedqvskzea5mr20.public.blob.vercel-storage.com/kjb-assets/handshake-1200.avif",
   "handshake-1200.jpg": "https://hiedqvskzea5mr20.public.blob.vercel-storage.com/kjb-assets/handshake-1200.jpg",
   "handshake-1200.webp": "https://hiedqvskzea5mr20.public.blob.vercel-storage.com/kjb-assets/handshake-1200.webp",

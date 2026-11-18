@@ -1,5 +1,5 @@
 import Reveal from '../Reveal/Reveal'
-import { KEN_BRUNETTO_PHOTO } from '../../config/assets'
+import { KEN_BRUNETTO_PHOTO, BRIAN_FINN_PHOTO } from '../../config/assets'
 import styles from './WhoWeAre.module.css'
 
 const CORE_VALUES = [
@@ -82,6 +82,48 @@ export default function WhoWeAre() {
               <blockquote className={styles.kenQuote}>
                 "Leadership is an attitude,<br />not a position."
               </blockquote>
+            </Reveal>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Brian Finn ───────────────────────────────────────────── */}
+      <section id="brian-finn" className={`section ${styles.brianSection}`}>
+        <div className="container">
+          <div className={styles.brianGrid}>
+
+            <Reveal className={styles.brianCallout}>
+              <img
+                src={BRIAN_FINN_PHOTO}
+                alt="Brian Finn, Director of Operations at KJB Solutions"
+                className={styles.brianPhoto}
+              />
+              <div className={styles.kenBadges}>
+                <span className={styles.kenBadge}>First Hire</span>
+                <span className={styles.kenBadge}>VA Partner</span>
+                <span className={styles.kenBadge}>Operations</span>
+              </div>
+            </Reveal>
+
+            <Reveal delay={180} className={styles.brianCopy}>
+              <p className={styles.brianRole}>Director of Operations</p>
+              <div className={styles.brianRule} aria-hidden="true" />
+              <h2 className={styles.brianHeading}>Brian Finn</h2>
+              <p className={styles.brianBio}>
+                Brian Finn was KJB Solutions' first hire, joining at the company's founding
+                with a commitment to building both the business and its people. On KJB's
+                first Department of Veterans Affairs (VA) contract, he served in two roles:
+                as Partner Manager, coordinating with the program's partner organizations,
+                and as Technical Project Manager, overseeing delivery. The work drew on his
+                strengths in relationship management and technical leadership.
+              </p>
+              <p className={styles.brianBio}>
+                As Director of Operations, Brian has shaped nearly every area of the
+                company, from business development to contract execution. Alongside running
+                day-to-day operations, he remains focused on helping KJB's team members
+                grow and thrive.
+              </p>
             </Reveal>
 
           </div>

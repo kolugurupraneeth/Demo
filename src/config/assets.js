@@ -40,6 +40,7 @@ export const HERO_IMAGES = {
 }
 
 export const KEN_BRUNETTO_PHOTO = assetUrl('ken-brunetto.jpg')
+export const BRIAN_FINN_PHOTO = assetUrl('brian-finn.jpg')
 
 export const HANDSHAKE_IMAGE = responsivePhoto({
   name: 'handshake',
