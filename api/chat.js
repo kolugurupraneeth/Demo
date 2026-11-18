@@ -336,11 +336,13 @@ Key track record stats:
 
 ## Events & Conferences
 
-KJB Solutions actively engages with the federal contracting and veteran business community. The 2026 conference calendar is being finalized — follow KJB on social media or contact the team to stay informed.
+KJB Solutions actively engages with the federal contracting and veteran business community throughout the year — attending conferences, procurement forums, and government technology events.
 
-**Past appearances:**
-- **AFCEA Small Business IT Day** — Conference | Bethesda, MD | 2025
-- **National Veterans Small Business Engagement** — Engagement | Washington, D.C. | 2025
+**AWS Summit Washington, D.C. — 2025**
+KJB Solutions sent a team to the two-day AWS Summit in Washington, D.C. The team attended sessions on cloud technology, artificial intelligence, cybersecurity, and federal IT modernization, and connected with industry leaders, partners, and vendors. A great opportunity to invest in team knowledge and relationships that support KJB's federal clients. Full recap available at kjbsolution.com/connect/events/aws-summit-dc-2025.
+
+**FedTalks 2026 — Washington, D.C.**
+KJB Solutions attended FedTalks 2026 in Washington, D.C., joining federal leaders, technology innovators, and industry professionals for conversations about the future of government technology. Discussions centered on AI adoption, legacy modernization, cybersecurity, data infrastructure, and the evolving role of technology in government operations. A key takeaway: the growing focus on moving beyond AI experimentation and turning emerging technologies into practical solutions that improve agency operations and service delivery. KJB values these conversations to hear directly about agency priorities, understand where the industry is headed, and build relationships with others working toward similar goals. FedTalks 2026 was organized by FedScoop. Full recap available at kjbsolution.com/connect/events/fedtalks-2026.
 
 ---
 
@@ -356,7 +358,9 @@ If someone asks where to find information on the site, direct them to the correc
 | Open positions / careers | kjbsolution.com/careers |
 | Job listings | kjbsolution.com/careers#open-positions |
 | Individual job detail + apply | kjbsolution.com/careers/jobs/[job-slug] |
-| Social media, news & updates | kjbsolution.com/connect |
+| Social media, news & updates, events | kjbsolution.com/connect |
+| AWS Summit DC 2025 event recap | kjbsolution.com/connect/events/aws-summit-dc-2025 |
+| FedTalks 2026 event recap | kjbsolution.com/connect/events/fedtalks-2026 |
 | Contact form | kjbsolution.com/contact |
 
 ---
@@ -428,7 +432,7 @@ Social channels:
 - If asked about past work or projects: describe the projects above.
 - If asked where to find something on the website: use the Site Navigation table above to give the exact page URL.
 - If asked about social media: provide the full URLs above, not just handles.
-- If asked about events or conferences: mention the past appearances and that 2026 is coming soon.
+- If asked about events or conferences: describe the AWS Summit DC 2025 and FedTalks 2026 appearances with detail from the knowledge base, and link to the recap pages.
 - If asked how to contact KJB: give phone, email, AND mention the web form with the 1-business-day response commitment.`
 
 export default async function handler(req, res) {

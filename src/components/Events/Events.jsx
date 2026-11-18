@@ -17,12 +17,6 @@ const PAST_EVENTS = [
     type: 'Conference',
     slug: 'fedtalks-2026',
   },
-  {
-    name: 'National Veterans Small Business Engagement',
-    location: 'Washington, D.C.',
-    date: '2025',
-    type: 'Engagement',
-  },
 ]
 
 export default function Events() {
