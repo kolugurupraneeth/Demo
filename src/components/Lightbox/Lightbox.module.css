@@ -1,0 +1,155 @@
+/* ═══════════════════════════════════════════════════════════════════
+   LIGHTBOX
+   ═══════════════════════════════════════════════════════════════════ */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(0, 0, 0, 0.93);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.18s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ─── Image ───────────────────────────────────────────────────────── */
+.imgWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: calc(100vw - 10rem);
+  max-height: calc(100vh - 9rem);
+}
+
+.img {
+  max-width: 100%;
+  max-height: calc(100vh - 9rem);
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+  display: block;
+}
+
+/* Slide-in animations — triggered by key change */
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(56px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-56px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.slideFromRight { animation: slideInRight 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.slideFromLeft  { animation: slideInLeft  0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+
+/* ─── Close button ────────────────────────────────────────────────── */
+.closeBtn {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s ease, transform 0.18s ease;
+  z-index: 9001;
+}
+.closeBtn:hover {
+  background: rgba(255,255,255,0.2);
+  transform: scale(1.1);
+}
+
+/* ─── Nav arrows ──────────────────────────────────────────────────── */
+.navBtn {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s ease, transform 0.2s ease;
+  z-index: 9001;
+}
+.navBtn:hover {
+  background: rgba(255,255,255,0.22);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.prevBtn { left: 1.25rem; }
+.nextBtn { right: 1.25rem; }
+
+/* ─── Footer — dots, counter, caption ────────────────────────────── */
+.footer {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 9001;
+}
+
+.dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.dot:hover  { background: rgba(255,255,255,0.6); }
+.dotActive  { background: #fff; transform: scale(1.3); cursor: default; }
+
+.counter {
+  font-family: var(--font-head);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.06em;
+}
+
+.caption {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.65);
+  text-align: center;
+  max-width: 56ch;
+  line-height: 1.5;
+}
+
+/* ─── Mobile ──────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .imgWrap { max-width: 100vw; max-height: calc(100vh - 11rem); }
+  .img     { max-height: calc(100vh - 11rem); border-radius: 4px; }
+  .prevBtn { left: 0.5rem; width: 44px; height: 44px; }
+  .nextBtn { right: 0.5rem; width: 44px; height: 44px; }
+}

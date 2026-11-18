@@ -1,6 +1,8 @@
+import { useState, useCallback } from 'react'
 import { Link, useParams, Navigate } from 'react-router-dom'
 import PageHeader from '../components/PageHeader/PageHeader'
 import Reveal from '../components/Reveal/Reveal'
+import Lightbox from '../components/Lightbox/Lightbox'
 import { AWS_SUMMIT_PHOTOS } from '../config/assets'
 import styles from './EventDetailPage.module.css'
 
@@ -11,11 +13,6 @@ const EVENTS = {
     year: '2025',
     location: 'Washington, D.C.',
     duration: '2-Day Event',
-    tags: [
-      '#AWSSummit', '#AWS', '#CloudComputing', '#FederalIT',
-      '#GovTech', '#Innovation', '#Cybersecurity',
-      '#ArtificialIntelligence', '#KJBSolutions', '#Networking',
-    ],
     body: [
       'Our KJB Solutions team had a great time attending the two-day AWS Summit Washington, D.C.!',
       'Throughout the event, our team participated in a variety of informative sessions covering the latest advancements in cloud technology, artificial intelligence, cybersecurity, and federal IT modernization. We also had the opportunity to connect with industry leaders, partners, and vendors, gaining valuable insights and building meaningful relationships.',
@@ -36,6 +33,20 @@ export default function EventDetailPage() {
   const { eventSlug } = useParams()
   const event = EVENTS[eventSlug]
 
+  const [lightboxIndex, setLightboxIndex] = useState(null)
+  const [lightboxDir, setLightboxDir] = useState('next')
+
+  const openAt = (i) => { setLightboxDir('next'); setLightboxIndex(i) }
+  const closeLightbox = useCallback(() => setLightboxIndex(null), [])
+  const goNext = useCallback(() => {
+    setLightboxDir('next')
+    setLightboxIndex(i => (i + 1) % event.photos.length)
+  }, [event?.photos.length])
+  const goPrev = useCallback(() => {
+    setLightboxDir('prev')
+    setLightboxIndex(i => (i - 1 + event.photos.length) % event.photos.length)
+  }, [event?.photos.length])
+
   if (!event) return <Navigate to="/connect" replace />
 
   return (
@@ -54,12 +65,6 @@ export default function EventDetailPage() {
               {event.body.map((para, i) => (
                 <p key={i} className={styles.para}>{para}</p>
               ))}
-
-              <div className={styles.tags}>
-                {event.tags.map(tag => (
-                  <span key={tag} className={styles.tag}>{tag}</span>
-                ))}
-              </div>
             </Reveal>
 
             <Reveal delay={150} className={styles.sidebar}>
@@ -91,29 +96,52 @@ export default function EventDetailPage() {
           <Reveal className={styles.galleryHeader}>
             <div className={styles.galleryRule} aria-hidden="true" />
             <h2 className={styles.galleryHeading}>From the Event</h2>
+            <p className={styles.galleryHint}>Click any photo to view full screen</p>
           </Reveal>
 
           <div className={styles.galleryGrid}>
-            {/* Featured first photo — full width */}
+            {/* Featured first photo */}
             <Reveal className={styles.galleryFeatured}>
-              <img
-                src={event.photos[0].src}
-                alt={event.photos[0].alt}
-                className={styles.galleryImg}
-                loading="lazy"
-              />
+              <button
+                className={styles.galleryBtn}
+                onClick={() => openAt(0)}
+                aria-label={`View photo: ${event.photos[0].alt}`}
+              >
+                <img
+                  src={event.photos[0].src}
+                  alt={event.photos[0].alt}
+                  className={styles.galleryImg}
+                  loading="lazy"
+                />
+                <span className={styles.zoomIcon} aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8">
+                    <path d="M8 3H3v5M17 8V3h-5M3 12v5h5M12 17h5v-5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </span>
+              </button>
             </Reveal>
 
-            {/* 2×2 grid for the remaining 4 */}
+            {/* 2×2 grid for remaining 4 */}
             <div className={styles.galleryQuad}>
               {event.photos.slice(1).map((photo, i) => (
                 <Reveal key={i} delay={i * 80} className={styles.galleryThumb}>
-                  <img
-                    src={photo.src}
-                    alt={photo.alt}
-                    className={styles.galleryImg}
-                    loading="lazy"
-                  />
+                  <button
+                    className={styles.galleryBtn}
+                    onClick={() => openAt(i + 1)}
+                    aria-label={`View photo: ${photo.alt}`}
+                  >
+                    <img
+                      src={photo.src}
+                      alt={photo.alt}
+                      className={styles.galleryImg}
+                      loading="lazy"
+                    />
+                    <span className={styles.zoomIcon} aria-hidden="true">
+                      <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8">
+                        <path d="M8 3H3v5M17 8V3h-5M3 12v5h5M12 17h5v-5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                  </button>
                 </Reveal>
               ))}
             </div>
@@ -134,6 +162,15 @@ export default function EventDetailPage() {
           </Reveal>
         </div>
       </section>
+
+      <Lightbox
+        photos={event.photos}
+        activeIndex={lightboxIndex}
+        direction={lightboxDir}
+        onClose={closeLightbox}
+        onPrev={goPrev}
+        onNext={goNext}
+      />
     </>
   )
 }
