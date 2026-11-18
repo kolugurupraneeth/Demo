@@ -11,6 +11,13 @@ const PAST_EVENTS = [
     slug: 'aws-summit-dc-2025',
   },
   {
+    name: 'FedTalks 2026',
+    location: 'Washington, D.C.',
+    date: '2026',
+    type: 'Conference',
+    slug: 'fedtalks-2026',
+  },
+  {
     name: 'National Veterans Small Business Engagement',
     location: 'Washington, D.C.',
     date: '2025',

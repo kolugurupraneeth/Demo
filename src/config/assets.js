@@ -47,6 +47,11 @@ export const AWS_SUMMIT_PHOTOS = {
   team:     assetUrl('aws-summit-team.jpg'),
 }
 
+export const FEDTALKS_PHOTOS = {
+  photo1: assetUrl('fedtalks-1.jpg'),
+  photo2: assetUrl('fedtalks-2.jpg'),
+}
+
 export const KEN_BRUNETTO_PHOTO = assetUrl('ken-brunetto.jpg')
 export const BRIAN_FINN_PHOTO = assetUrl('brian-finn.jpg')
 

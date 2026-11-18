@@ -3,7 +3,7 @@ import { Link, useParams, Navigate } from 'react-router-dom'
 import PageHeader from '../components/PageHeader/PageHeader'
 import Reveal from '../components/Reveal/Reveal'
 import Lightbox from '../components/Lightbox/Lightbox'
-import { AWS_SUMMIT_PHOTOS } from '../config/assets'
+import { AWS_SUMMIT_PHOTOS, FEDTALKS_PHOTOS } from '../config/assets'
 import styles from './EventDetailPage.module.css'
 
 const EVENTS = {
@@ -25,6 +25,24 @@ const EVENTS = {
       { src: AWS_SUMMIT_PHOTOS.rooftop,  alt: 'KJB team on the rooftop terrace overlooking Washington D.C.' },
       { src: AWS_SUMMIT_PHOTOS.floor,    alt: 'AWS Summit exhibition floor' },
       { src: AWS_SUMMIT_PHOTOS.team,     alt: 'KJB Solutions team at the AWS Summit' },
+    ],
+  },
+  'fedtalks-2026': {
+    title: 'FedTalks 2026',
+    type: 'Conference',
+    year: '2026',
+    location: 'Washington, D.C.',
+    duration: '1-Day Event',
+    body: [
+      'KJB Solutions attended FedTalks 2026 in Washington, D.C., joining federal leaders, technology innovators, and industry professionals for conversations about the future of government technology.',
+      'The event brought together perspectives from across the federal landscape, with discussions centered on AI adoption, legacy modernization, cybersecurity, data infrastructure, and the evolving role of technology in government operations.',
+      'A key takeaway was the growing focus on moving beyond AI experimentation and turning emerging technologies into practical solutions that improve agency operations and service delivery.',
+      'For KJB, staying connected to these conversations is important. As a government contractor working in technology and middleware, we value opportunities to hear directly about agency priorities, understand where the industry is headed, and build relationships with others working toward similar goals.',
+      'Thank you to FedScoop for bringing together such a great group of federal and industry leaders!',
+    ],
+    photos: [
+      { src: FEDTALKS_PHOTOS.photo1, alt: 'KJB Solutions team at FedTalks 2026' },
+      { src: FEDTALKS_PHOTOS.photo2, alt: 'FedTalks 2026 event in Washington, D.C.' },
     ],
   },
 }
@@ -100,34 +118,13 @@ export default function EventDetailPage() {
           </Reveal>
 
           <div className={styles.galleryGrid}>
-            {/* Featured first photo */}
-            <Reveal className={styles.galleryFeatured}>
-              <button
-                className={styles.galleryBtn}
-                onClick={() => openAt(0)}
-                aria-label={`View photo: ${event.photos[0].alt}`}
-              >
-                <img
-                  src={event.photos[0].src}
-                  alt={event.photos[0].alt}
-                  className={styles.galleryImg}
-                  loading="lazy"
-                />
-                <span className={styles.zoomIcon} aria-hidden="true">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8">
-                    <path d="M8 3H3v5M17 8V3h-5M3 12v5h5M12 17h5v-5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </span>
-              </button>
-            </Reveal>
-
-            {/* 2×2 grid for remaining 4 */}
-            <div className={styles.galleryQuad}>
-              {event.photos.slice(1).map((photo, i) => (
-                <Reveal key={i} delay={i * 80} className={styles.galleryThumb}>
+            {event.photos.length <= 2 ? (
+              /* Side-by-side layout for 1–2 photos */
+              event.photos.map((photo, i) => (
+                <Reveal key={i} delay={i * 80} className={styles.galleryFeatured}>
                   <button
                     className={styles.galleryBtn}
-                    onClick={() => openAt(i + 1)}
+                    onClick={() => openAt(i)}
                     aria-label={`View photo: ${photo.alt}`}
                   >
                     <img
@@ -137,14 +134,62 @@ export default function EventDetailPage() {
                       loading="lazy"
                     />
                     <span className={styles.zoomIcon} aria-hidden="true">
-                      <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8">
                         <path d="M8 3H3v5M17 8V3h-5M3 12v5h5M12 17h5v-5" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </span>
                   </button>
                 </Reveal>
-              ))}
-            </div>
+              ))
+            ) : (
+              <>
+                {/* Featured first photo */}
+                <Reveal className={styles.galleryFeatured}>
+                  <button
+                    className={styles.galleryBtn}
+                    onClick={() => openAt(0)}
+                    aria-label={`View photo: ${event.photos[0].alt}`}
+                  >
+                    <img
+                      src={event.photos[0].src}
+                      alt={event.photos[0].alt}
+                      className={styles.galleryImg}
+                      loading="lazy"
+                    />
+                    <span className={styles.zoomIcon} aria-hidden="true">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8">
+                        <path d="M8 3H3v5M17 8V3h-5M3 12v5h5M12 17h5v-5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                  </button>
+                </Reveal>
+
+                {/* 2×2 grid for remaining photos */}
+                <div className={styles.galleryQuad}>
+                  {event.photos.slice(1).map((photo, i) => (
+                    <Reveal key={i} delay={i * 80} className={styles.galleryThumb}>
+                      <button
+                        className={styles.galleryBtn}
+                        onClick={() => openAt(i + 1)}
+                        aria-label={`View photo: ${photo.alt}`}
+                      >
+                        <img
+                          src={photo.src}
+                          alt={photo.alt}
+                          className={styles.galleryImg}
+                          loading="lazy"
+                        />
+                        <span className={styles.zoomIcon} aria-hidden="true">
+                          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8">
+                            <path d="M8 3H3v5M17 8V3h-5M3 12v5h5M12 17h5v-5" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </span>
+                      </button>
+                    </Reveal>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         </div>
       </section>

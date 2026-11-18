@@ -1,4 +1,6 @@
 const ASSETS = {
+  "fedtalks-1.jpg": "https://hiedqvskzea5mr20.public.blob.vercel-storage.com/kjb-assets/fedtalks-1.jpg",
+  "fedtalks-2.jpg": "https://hiedqvskzea5mr20.public.blob.vercel-storage.com/kjb-assets/fedtalks-2.jpg",
   "aws-summit-floor.jpg": "https://hiedqvskzea5mr20.public.blob.vercel-storage.com/kjb-assets/aws-summit-floor.jpg",
   "aws-summit-keynote.jpg": "https://hiedqvskzea5mr20.public.blob.vercel-storage.com/kjb-assets/aws-summit-keynote.jpg",
   "aws-summit-rooftop.jpg": "https://hiedqvskzea5mr20.public.blob.vercel-storage.com/kjb-assets/aws-summit-rooftop.jpg",

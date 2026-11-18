@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader/PageHeader'
 import Social from '../components/Social/Social'
+import Events from '../components/Events/Events'
 import Reveal from '../components/Reveal/Reveal'
 import styles from './ConnectPage.module.css'
 
@@ -13,6 +14,7 @@ export default function ConnectPage() {
         accent="Stay Connected"
       />
       <Social />
+      <Events />
 
       {/* News placeholder */}
       <section id="news" className={`section ${styles.newsSection}`}>
