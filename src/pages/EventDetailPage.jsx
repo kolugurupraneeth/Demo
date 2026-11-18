@@ -7,16 +7,16 @@ import { AWS_SUMMIT_PHOTOS, FEDTALKS_PHOTOS } from '../config/assets'
 import styles from './EventDetailPage.module.css'
 
 const EVENTS = {
-  'aws-summit-dc-2025': {
+  'aws-summit-dc-2026': {
     title: 'AWS Summit Washington, D.C.',
     type: 'Conference',
-    year: '2025',
+    year: '2026',
     location: 'Washington, D.C.',
     duration: '2-Day Event',
     body: [
-      'Our KJB Solutions team had a great time attending the two-day AWS Summit Washington, D.C.!',
-      'Throughout the event, our team participated in a variety of informative sessions covering the latest advancements in cloud technology, artificial intelligence, cybersecurity, and federal IT modernization. We also had the opportunity to connect with industry leaders, partners, and vendors, gaining valuable insights and building meaningful relationships.',
-      'Beyond the learning and networking, it was a great opportunity to spend time together as a team, collaborate, and continue investing in the knowledge and connections that help us better serve our clients.',
+      'Our KJB Solutions team had a fantastic time attending the two-day AWS Summit in Washington, D.C.!',
+      'Throughout the event, our team took part in a variety of informative sessions covering the latest advancements in cloud technology, artificial intelligence, cybersecurity, and federal IT modernization. We also had the opportunity to connect with industry leaders, partners, and vendors, gaining valuable insights and building meaningful relationships.',
+      'Beyond the learning and networking, the summit was a welcome chance to spend time together as a team, collaborate, and keep investing in the knowledge and connections that help us better serve our clients.',
       'Thank you to Amazon Web Services (AWS) for hosting another outstanding event. We look forward to applying what we learned and continuing to support innovative solutions across the federal space.',
     ],
     photos: [
@@ -37,7 +37,7 @@ const EVENTS = {
       'KJB Solutions attended FedTalks 2026 in Washington, D.C., joining federal leaders, technology innovators, and industry professionals for conversations about the future of government technology.',
       'The event brought together perspectives from across the federal landscape, with discussions centered on AI adoption, legacy modernization, cybersecurity, data infrastructure, and the evolving role of technology in government operations.',
       'A key takeaway was the growing focus on moving beyond AI experimentation and turning emerging technologies into practical solutions that improve agency operations and service delivery.',
-      'For KJB, staying connected to these conversations is important. As a government contractor working in technology and middleware, we value opportunities to hear directly about agency priorities, understand where the industry is headed, and build relationships with others working toward similar goals.',
+      'For KJB, staying connected to these conversations matters. As a government contractor working in technology and middleware, we value the chance to hear directly about agency priorities, understand where the industry is headed, and build relationships with others working toward similar goals.',
       'Thank you to FedScoop for bringing together such a great group of federal and industry leaders!',
     ],
     photos: [
@@ -198,11 +198,11 @@ export default function EventDetailPage() {
       <section className={`section ${styles.backSection}`}>
         <div className="container">
           <Reveal className={styles.backRow}>
-            <Link to="/connect" className={styles.backLink}>
+            <Link to="/connect#events" className={styles.backLink}>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
                 <path d="M10 3L5 8l5 5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-              Back to Connect
+              Back to Events
             </Link>
           </Reveal>
         </div>

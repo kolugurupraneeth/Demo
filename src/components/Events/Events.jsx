@@ -6,9 +6,9 @@ const PAST_EVENTS = [
   {
     name: 'AWS Summit Washington, D.C.',
     location: 'Washington, D.C.',
-    date: '2025',
+    date: '2026',
     type: 'Conference',
-    slug: 'aws-summit-dc-2025',
+    slug: 'aws-summit-dc-2026',
   },
   {
     name: 'FedTalks 2026',
@@ -36,12 +36,12 @@ export default function Events() {
 
         {/* Upcoming events placeholder */}
         <Reveal delay={100} className={styles.upcomingBox}>
-          <div className={styles.upcomingYear}>2026</div>
+          <div className={styles.upcomingYear}>2027</div>
           <div className={styles.upcomingContent}>
             <p className={styles.upcomingLabel}>Upcoming Events</p>
             <h3 className={styles.upcomingHeading}>Schedule Coming Soon</h3>
             <p className={styles.upcomingBody}>
-              KJB Solutions is finalizing its 2026 conference and event calendar.
+              KJB Solutions is finalizing its 2027 conference and event calendar.
               Follow us on social media or reach out directly to stay informed about
               where we'll be throughout the year.
             </p>

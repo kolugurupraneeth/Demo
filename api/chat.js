@@ -67,7 +67,7 @@ KJB Solutions is a **veteran-owned small business (VOSB)** dedicated to deliveri
 ## Leadership
 
 **Ken Brunetto** — Founder & Chief Executive Officer
-Ken Brunetto is the owner and CEO of KJB Solutions and an Army veteran dedicated to improving the health, benefits, and memorial services that the U.S. Department of Veterans Affairs (VA) provides to veterans and their families. Under his leadership, KJB trains and employs veterans, giving the company a perspective few contractors can offer: its team supports every phase of the Software Development Life Cycle (SDLC), and as veterans, they also use the systems they help build. Ken is committed to delivering consulting services that make responsible use of VA resources and taxpayer dollars. On every project, his goal is solutions that are robust, reliable, easy to maintain, and adaptable as the VA's needs evolve.
+Ken Brunetto is the owner and CEO of KJB Solutions and an Army veteran dedicated to improving the health, benefits, and memorial services that the U.S. Department of Veterans Affairs (VA) provides to veterans and their families. Under his leadership, KJB trains and employs veterans, giving the company a perspective few contractors can offer: its team supports every phase of the Software Development Life Cycle (SDLC), and as veterans, they also use the systems they help build. Ken is committed to delivering consulting services that make responsible use of VA resources and taxpayer dollars. On every project, his goal is to deliver solutions that are robust, reliable, easy to maintain, and adaptable as the VA's needs evolve.
 Quote: "Leadership is an attitude, not a position."
 
 **Brian Finn** — Director of Operations
@@ -338,11 +338,11 @@ Key track record stats:
 
 KJB Solutions actively engages with the federal contracting and veteran business community throughout the year — attending conferences, procurement forums, and government technology events.
 
-**AWS Summit Washington, D.C. — 2025**
-KJB Solutions sent a team to the two-day AWS Summit in Washington, D.C. The team attended sessions on cloud technology, artificial intelligence, cybersecurity, and federal IT modernization, and connected with industry leaders, partners, and vendors. A great opportunity to invest in team knowledge and relationships that support KJB's federal clients. Full recap available at kjbsolution.com/connect/events/aws-summit-dc-2025.
+**AWS Summit Washington, D.C. — 2026**
+KJB Solutions sent a team to the two-day AWS Summit in Washington, D.C. The team took part in sessions on cloud technology, artificial intelligence, cybersecurity, and federal IT modernization, and connected with industry leaders, partners, and vendors. The summit was also a welcome chance to spend time together as a team and keep investing in the knowledge and connections that help KJB better serve its clients. Full recap available at kjbsolution.com/connect/events/aws-summit-dc-2026.
 
 **FedTalks 2026 — Washington, D.C.**
-KJB Solutions attended FedTalks 2026 in Washington, D.C., joining federal leaders, technology innovators, and industry professionals for conversations about the future of government technology. Discussions centered on AI adoption, legacy modernization, cybersecurity, data infrastructure, and the evolving role of technology in government operations. A key takeaway: the growing focus on moving beyond AI experimentation and turning emerging technologies into practical solutions that improve agency operations and service delivery. KJB values these conversations to hear directly about agency priorities, understand where the industry is headed, and build relationships with others working toward similar goals. FedTalks 2026 was organized by FedScoop. Full recap available at kjbsolution.com/connect/events/fedtalks-2026.
+KJB Solutions attended FedTalks 2026 in Washington, D.C., joining federal leaders, technology innovators, and industry professionals for conversations about the future of government technology. Discussions centered on AI adoption, legacy modernization, cybersecurity, data infrastructure, and the evolving role of technology in government operations. A key takeaway: the growing focus on moving beyond AI experimentation and turning emerging technologies into practical solutions that improve agency operations and service delivery. For KJB, staying connected to these conversations matters — as a government contractor working in technology and middleware, they value the chance to hear directly about agency priorities, understand where the industry is headed, and build relationships with others working toward similar goals. FedTalks 2026 was organized by FedScoop. Full recap available at kjbsolution.com/connect/events/fedtalks-2026.
 
 ---
 
@@ -359,7 +359,7 @@ If someone asks where to find information on the site, direct them to the correc
 | Job listings | kjbsolution.com/careers#open-positions |
 | Individual job detail + apply | kjbsolution.com/careers/jobs/[job-slug] |
 | Social media, news & updates, events | kjbsolution.com/connect |
-| AWS Summit DC 2025 event recap | kjbsolution.com/connect/events/aws-summit-dc-2025 |
+| AWS Summit DC 2026 event recap | kjbsolution.com/connect/events/aws-summit-dc-2026 |
 | FedTalks 2026 event recap | kjbsolution.com/connect/events/fedtalks-2026 |
 | Contact form | kjbsolution.com/contact |
 
@@ -432,7 +432,7 @@ Social channels:
 - If asked about past work or projects: describe the projects above.
 - If asked where to find something on the website: use the Site Navigation table above to give the exact page URL.
 - If asked about social media: provide the full URLs above, not just handles.
-- If asked about events or conferences: describe the AWS Summit DC 2025 and FedTalks 2026 appearances with detail from the knowledge base, and link to the recap pages.
+- If asked about events or conferences: describe the AWS Summit DC 2026 and FedTalks 2026 appearances with detail from the knowledge base, and link to the recap pages.
 - If asked how to contact KJB: give phone, email, AND mention the web form with the 1-business-day response commitment.`
 
 export default async function handler(req, res) {

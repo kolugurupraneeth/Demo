@@ -63,8 +63,8 @@ export default function WhoWeAre() {
                 phase of the Software Development Life Cycle (SDLC), and as veterans, they
                 also use the systems they help build. Ken is committed to delivering
                 consulting services that make responsible use of VA resources and taxpayer
-                dollars. On every project, his goal is solutions that are robust, reliable,
-                easy to maintain, and adaptable as the VA's needs evolve.
+                dollars. On every project, his goal is to deliver solutions that are robust,
+                reliable, easy to maintain, and adaptable as the VA's needs evolve.
               </p>
             </Reveal>
 
@@ -141,10 +141,10 @@ export default function WhoWeAre() {
             <Reveal delay={80}>
               <p className={styles.aboutBody}>
                 KJB Solutions is a veteran-owned small business (VOSB) dedicated to delivering
-                dependable, high-quality, efficient and cost effective solutions that help
-                organizations operate more securely, modernly, and efficiently. Founded by an
-                Army veteran, KJB Solutions is driven by a mission to improve veteran health,
-                benefits, and memorial services provided by the Department of Veterans Affairs.
+                dependable, high-quality, cost-effective solutions that help organizations
+                operate more securely, efficiently, and effectively. Founded by an Army veteran,
+                KJB Solutions is driven by a mission to improve veteran health, benefits, and
+                memorial services provided by the Department of Veterans Affairs.
               </p>
               <p className={styles.aboutBody}>
                 We train and employ veterans and bring a unique perspective to our work as both
