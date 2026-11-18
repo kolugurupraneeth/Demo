@@ -46,8 +46,8 @@ export default function Events() {
               where we'll be throughout the year.
             </p>
             <div className={styles.upcomingActions}>
-              <a href="#social" className="btn btn-primary">Follow Us</a>
-              <a href="#contact" className="btn btn-outline">Get Notified</a>
+              <Link to="/connect#social" className="btn btn-primary">Follow Us</Link>
+              <Link to="/contact" className="btn btn-outline">Get Notified</Link>
             </div>
           </div>
         </Reveal>
