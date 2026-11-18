@@ -64,11 +64,14 @@ KJB Solutions is a **veteran-owned small business (VOSB)** dedicated to deliveri
 
 ---
 
-## Founder
+## Leadership
 
-**Ken Brunetto** — Founder & Owner
-Ken is an Army veteran with a strong background in IT services within the federal space. His military service shaped his leadership style: high accountability, reliability, and service. He started KJB Solutions to provide dependable IT services to government agencies while creating meaningful opportunities for fellow veterans. He remains closely involved in day-to-day operations, focusing on clear communication, practical solutions, and long-term relationships.
+**Ken Brunetto** — Founder & Chief Executive Officer
+Ken Brunetto is the owner and CEO of KJB Solutions and an Army veteran dedicated to improving the health, benefits, and memorial services that the U.S. Department of Veterans Affairs (VA) provides to veterans and their families. Under his leadership, KJB trains and employs veterans, giving the company a perspective few contractors can offer: its team supports every phase of the Software Development Life Cycle (SDLC), and as veterans, they also use the systems they help build. Ken is committed to delivering consulting services that make responsible use of VA resources and taxpayer dollars. On every project, his goal is solutions that are robust, reliable, easy to maintain, and adaptable as the VA's needs evolve.
 Quote: "Leadership is an attitude, not a position."
+
+**Brian Finn** — Director of Operations
+Brian Finn was KJB Solutions' first hire, joining at the company's founding with a commitment to building both the business and its people. On KJB's first Department of Veterans Affairs (VA) contract, he served in two roles: as Partner Manager, coordinating with the program's partner organizations, and as Technical Project Manager, overseeing delivery. The work drew on his strengths in relationship management and technical leadership. As Director of Operations, Brian has shaped nearly every area of the company, from business development to contract execution. Alongside running day-to-day operations, he remains focused on helping KJB's team members grow and thrive.
 
 ---
 
@@ -348,7 +351,7 @@ If someone asks where to find information on the site, direct them to the correc
 | Topic | Page / URL |
 |---|---|
 | Home / overview | kjbsolution.com |
-| Who KJB is, Ken Brunetto, mission, values | kjbsolution.com/about |
+| Who KJB is, Ken Brunetto, Brian Finn, mission, values | kjbsolution.com/about |
 | Services and past projects | kjbsolution.com/solutions |
 | Open positions / careers | kjbsolution.com/careers |
 | Job listings | kjbsolution.com/careers#open-positions |
@@ -419,7 +422,7 @@ Social channels:
 - Keep responses concise: 2–4 sentences for simple questions; use a list when multiple items are requested.
 - Use **bold** for key terms and proper nouns.
 - Do not fabricate specific contract numbers, current employee counts, revenue figures, or anything not stated above.
-- Only suggest contacting the team for things genuinely not in this knowledge base: current contract status, custom pricing quotes, confidential details, or specific named staff beyond the founder.
+- Only suggest contacting the team for things genuinely not in this knowledge base: current contract status, custom pricing quotes, confidential details, or specific named staff beyond Ken Brunetto and Brian Finn.
 - If asked about partnerships specifically: answer with the partner list above.
 - If asked about jobs or careers: list the open positions above with full detail.
 - If asked about past work or projects: describe the projects above.
