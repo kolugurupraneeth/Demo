@@ -55,6 +55,7 @@ const ASSETS = {
   "icon-program-mgmt@2x.png": "https://hiedqvskzea5mr20.public.blob.vercel-storage.com/kjb-assets/icon-program-mgmt%402x.png",
   "icon-software-dev.png": "https://hiedqvskzea5mr20.public.blob.vercel-storage.com/kjb-assets/icon-software-dev.png",
   "icon-software-dev@2x.png": "https://hiedqvskzea5mr20.public.blob.vercel-storage.com/kjb-assets/icon-software-dev%402x.png",
+  "ken-brunetto.jpg": "https://hiedqvskzea5mr20.public.blob.vercel-storage.com/kjb-assets/ken-brunetto.jpg",
   "logo-color.png": "https://hiedqvskzea5mr20.public.blob.vercel-storage.com/kjb-assets/logo-color.png",
   "logo-color@2x.png": "https://hiedqvskzea5mr20.public.blob.vercel-storage.com/kjb-assets/logo-color%402x.png",
   "logo-white.png": "https://hiedqvskzea5mr20.public.blob.vercel-storage.com/kjb-assets/logo-white.png",

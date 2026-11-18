@@ -1,4 +1,5 @@
 import Reveal from '../Reveal/Reveal'
+import { KEN_BRUNETTO_PHOTO } from '../../config/assets'
 import styles from './WhoWeAre.module.css'
 
 const CORE_VALUES = [
@@ -50,27 +51,29 @@ export default function WhoWeAre() {
           <div className={styles.kenGrid}>
 
             <Reveal className={styles.kenCopy}>
-              <p className={styles.kenRole}>Founder &amp; Owner</p>
+              <p className={styles.kenRole}>Chief Executive Officer</p>
               <div className={styles.rule} aria-hidden="true" />
               <h2 className={styles.kenHeading}>Ken Brunetto</h2>
               <p className={styles.kenBio}>
-                Ken, the owner and founder of KJB Solutions, is an Army veteran with a
-                strong background in IT Services within the Federal space. His time in the
-                military shaped the way he approaches leadership, placing a high value on
-                accountability, reliability, and service.
-              </p>
-              <p className={styles.kenBio}>
-                Ken started KJB Solutions to provide dependable IT Services and software
-                support to government agencies while also creating meaningful opportunities
-                for fellow veterans in the IT field. He remains closely involved in the
-                day-to-day work of the company, focusing on clear communication, practical
-                &amp; cost efficient solutions, and building long-term relationships based
-                on trust and results.
+                Ken Brunetto is the owner and CEO of KJB Solutions and an Army veteran
+                dedicated to improving the health, benefits, and memorial services that the
+                U.S. Department of Veterans Affairs (VA) provides to veterans and their
+                families. Under his leadership, KJB trains and employs veterans, giving the
+                company a perspective few contractors can offer: its team supports every
+                phase of the Software Development Life Cycle (SDLC), and as veterans, they
+                also use the systems they help build. Ken is committed to delivering
+                consulting services that make responsible use of VA resources and taxpayer
+                dollars. On every project, his goal is solutions that are robust, reliable,
+                easy to maintain, and adaptable as the VA's needs evolve.
               </p>
             </Reveal>
 
             <Reveal delay={180} className={styles.kenCallout}>
-              <div className={styles.monogram} aria-hidden="true">KB</div>
+              <img
+                src={KEN_BRUNETTO_PHOTO}
+                alt="Ken Brunetto, CEO of KJB Solutions"
+                className={styles.kenPhoto}
+              />
               <div className={styles.kenBadges}>
                 <span className={styles.kenBadge}>Army Veteran</span>
                 <span className={styles.kenBadge}>VOSB Founder</span>

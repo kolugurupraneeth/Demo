@@ -95,25 +95,20 @@
   transition-duration: 0.1s;
 }
 
-.monogram {
-  width: 88px;
-  height: 88px;
+.kenPhoto {
+  width: 148px;
+  height: 148px;
   border-radius: 50%;
-  background: var(--crimson);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-head);
-  font-size: 2rem;
-  font-weight: 900;
-  color: var(--white);
-  letter-spacing: -0.02em;
+  object-fit: cover;
+  object-position: center top;
   flex-shrink: 0;
-  transition: transform 0.35s var(--ease-out), box-shadow 0.35s ease;
+  border: 3px solid rgba(255,255,255,0.18);
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s ease, border-color 0.35s ease;
 }
-.kenCallout:hover .monogram {
-  transform: scale(1.12);
-  box-shadow: 0 8px 32px rgba(150,31,33,0.55);
+.kenCallout:hover .kenPhoto {
+  transform: scale(1.06);
+  border-color: rgba(232,136,0,0.6);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45);
 }
 
 .kenBadges {

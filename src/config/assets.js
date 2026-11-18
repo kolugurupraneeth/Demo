@@ -39,6 +39,8 @@ export const HERO_IMAGES = {
   }),
 }
 
+export const KEN_BRUNETTO_PHOTO = assetUrl('ken-brunetto.jpg')
+
 export const HANDSHAKE_IMAGE = responsivePhoto({
   name: 'handshake',
   widths: [720, 1200, 1600],
