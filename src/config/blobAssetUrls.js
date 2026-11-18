@@ -1,4 +1,9 @@
 const ASSETS = {
+  "aws-summit-floor.jpg": "https://hiedqvskzea5mr20.public.blob.vercel-storage.com/kjb-assets/aws-summit-floor.jpg",
+  "aws-summit-keynote.jpg": "https://hiedqvskzea5mr20.public.blob.vercel-storage.com/kjb-assets/aws-summit-keynote.jpg",
+  "aws-summit-rooftop.jpg": "https://hiedqvskzea5mr20.public.blob.vercel-storage.com/kjb-assets/aws-summit-rooftop.jpg",
+  "aws-summit-sign.jpg": "https://hiedqvskzea5mr20.public.blob.vercel-storage.com/kjb-assets/aws-summit-sign.jpg",
+  "aws-summit-team.jpg": "https://hiedqvskzea5mr20.public.blob.vercel-storage.com/kjb-assets/aws-summit-team.jpg",
   "brian-finn.jpg": "https://hiedqvskzea5mr20.public.blob.vercel-storage.com/kjb-assets/brian-finn.jpg",
   "handshake-1200.avif": "https://hiedqvskzea5mr20.public.blob.vercel-storage.com/kjb-assets/handshake-1200.avif",
   "handshake-1200.jpg": "https://hiedqvskzea5mr20.public.blob.vercel-storage.com/kjb-assets/handshake-1200.jpg",

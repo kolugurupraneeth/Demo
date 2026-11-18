@@ -1,0 +1,199 @@
+/* ═══════════════════════════════════════════════════════════════════
+   EVENT DETAIL PAGE
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ─── Article section ─────────────────────────────────────────────── */
+.articleSection {
+  background: var(--white);
+}
+
+.articleGrid {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: clamp(3rem, 7vw, 5rem);
+  align-items: start;
+}
+
+.articleBody {
+  /* left column */
+}
+
+.para {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.3vw, 1.125rem);
+  color: var(--text-mid);
+  line-height: 1.82;
+  text-wrap: pretty;
+}
+.para + .para {
+  margin-top: 1.375rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 2.25rem;
+}
+
+.tag {
+  font-family: var(--font-head);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--navy);
+  background: rgba(0, 42, 92, 0.07);
+  border: 1px solid rgba(0, 42, 92, 0.14);
+  border-radius: 100px;
+  padding: 0.3rem 0.85rem;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+.tag:hover {
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* ─── Sidebar ─────────────────────────────────────────────────────── */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: sticky;
+  top: 6rem;
+}
+
+.sideCard {
+  padding: 1.125rem 1.375rem;
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.sideLabel {
+  font-family: var(--font-head);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--orange);
+  margin-bottom: 0.3rem;
+}
+
+.sideValue {
+  font-family: var(--font-head);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.3;
+}
+
+/* ─── Gallery section ─────────────────────────────────────────────── */
+.gallerySection {
+  background: var(--navy-deep);
+}
+
+.galleryHeader {
+  margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.galleryRule {
+  width: 3rem;
+  height: 3px;
+  background: var(--orange);
+  margin-bottom: 1.25rem;
+  border-radius: 2px;
+}
+
+.galleryHeading {
+  font-family: var(--font-head);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.03em;
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.galleryFeatured {
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+}
+
+.galleryQuad {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.galleryThumb {
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+.galleryImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s var(--ease-out), filter 0.45s ease;
+  filter: brightness(0.92);
+}
+.galleryFeatured:hover .galleryImg,
+.galleryThumb:hover .galleryImg {
+  transform: scale(1.04);
+  filter: brightness(1);
+}
+
+/* ─── Back section ────────────────────────────────────────────────── */
+.backSection {
+  background: var(--white);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.backRow {
+  display: flex;
+  align-items: center;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-head);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+  transition: color 0.18s ease, gap 0.18s ease;
+}
+.backLink:hover {
+  color: var(--crimson);
+  gap: 0.75rem;
+}
+.backLink svg {
+  transition: transform 0.18s ease;
+}
+.backLink:hover svg {
+  transform: translateX(-3px);
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .articleGrid { grid-template-columns: 1fr; }
+  .sidebar { position: static; flex-direction: row; flex-wrap: wrap; gap: 0.625rem; }
+  .sideCard { flex: 1 1 140px; }
+  .galleryGrid { grid-template-columns: 1fr; }
+  .galleryFeatured { aspect-ratio: 16 / 9; }
+  .galleryQuad { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 540px) {
+  .galleryQuad { grid-template-columns: 1fr; }
+  .galleryThumb { aspect-ratio: 16 / 10; }
+}

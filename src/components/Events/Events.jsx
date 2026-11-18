@@ -1,12 +1,14 @@
+import { Link } from 'react-router-dom'
 import Reveal from '../Reveal/Reveal'
 import styles from './Events.module.css'
 
 const PAST_EVENTS = [
   {
-    name: 'AFCEA Small Business IT Day',
-    location: 'Bethesda, MD',
+    name: 'AWS Summit Washington, D.C.',
+    location: 'Washington, D.C.',
     date: '2025',
     type: 'Conference',
+    slug: 'aws-summit-dc-2025',
   },
   {
     name: 'National Veterans Small Business Engagement',
@@ -53,28 +55,44 @@ export default function Events() {
         <Reveal delay={200} className={styles.pastSection}>
           <h3 className={styles.pastHeading}>Past Appearances</h3>
           <div className={styles.pastGrid}>
-            {PAST_EVENTS.map((e, i) => (
-              <div key={i} className={styles.pastCard}>
-                <span className={styles.pastType}>{e.type}</span>
-                <p className={styles.pastName}>{e.name}</p>
-                <div className={styles.pastMeta}>
-                  <span className={styles.pastMetaItem}>
-                    <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
-                      <path d="M8 2C5.24 2 3 4.24 3 7c0 4.25 5 9 5 9s5-4.75 5-9c0-2.76-2.24-5-5-5z" strokeLinecap="round" strokeLinejoin="round"/>
-                      <circle cx="8" cy="7" r="1.5"/>
-                    </svg>
-                    {e.location}
-                  </span>
-                  <span className={styles.pastMetaItem}>
-                    <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
-                      <rect x="2" y="3" width="12" height="11" rx="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M5 2v2M11 2v2M2 7h12" strokeLinecap="round"/>
-                    </svg>
-                    {e.date}
-                  </span>
+            {PAST_EVENTS.map((e, i) => {
+              const inner = (
+                <>
+                  <span className={styles.pastType}>{e.type}</span>
+                  <p className={styles.pastName}>{e.name}</p>
+                  <div className={styles.pastMeta}>
+                    <span className={styles.pastMetaItem}>
+                      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+                        <path d="M8 2C5.24 2 3 4.24 3 7c0 4.25 5 9 5 9s5-4.75 5-9c0-2.76-2.24-5-5-5z" strokeLinecap="round" strokeLinejoin="round"/>
+                        <circle cx="8" cy="7" r="1.5"/>
+                      </svg>
+                      {e.location}
+                    </span>
+                    <span className={styles.pastMetaItem}>
+                      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+                        <rect x="2" y="3" width="12" height="11" rx="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M5 2v2M11 2v2M2 7h12" strokeLinecap="round"/>
+                      </svg>
+                      {e.date}
+                    </span>
+                  </div>
+                  {e.slug && (
+                    <span className={styles.pastReadMore} aria-hidden="true">
+                      Read recap →
+                    </span>
+                  )}
+                </>
+              )
+              return e.slug ? (
+                <Link key={i} to={`/connect/events/${e.slug}`} className={`${styles.pastCard} ${styles.pastCardLink}`}>
+                  {inner}
+                </Link>
+              ) : (
+                <div key={i} className={styles.pastCard}>
+                  {inner}
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </Reveal>
 

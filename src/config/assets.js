@@ -39,6 +39,14 @@ export const HERO_IMAGES = {
   }),
 }
 
+export const AWS_SUMMIT_PHOTOS = {
+  keynote:  assetUrl('aws-summit-keynote.jpg'),
+  floor:    assetUrl('aws-summit-floor.jpg'),
+  rooftop:  assetUrl('aws-summit-rooftop.jpg'),
+  sign:     assetUrl('aws-summit-sign.jpg'),
+  team:     assetUrl('aws-summit-team.jpg'),
+}
+
 export const KEN_BRUNETTO_PHOTO = assetUrl('ken-brunetto.jpg')
 export const BRIAN_FINN_PHOTO = assetUrl('brian-finn.jpg')
 

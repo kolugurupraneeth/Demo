@@ -12,6 +12,7 @@ import JobDetailPage from './pages/JobDetailPage'
 import JobApplyPage from './pages/JobApplyPage'
 import ConnectPage from './pages/ConnectPage'
 import ContactPage from './pages/ContactPage'
+import EventDetailPage from './pages/EventDetailPage'
 
 function AppShell({ theme, toggleTheme }) {
   const { pathname } = useLocation()
@@ -27,6 +28,7 @@ function AppShell({ theme, toggleTheme }) {
           <Route path="/careers/jobs/:jobSlug" element={<JobDetailPage />} />
           <Route path="/careers/apply/:jobSlug" element={<JobApplyPage />} />
           <Route path="/connect" element={<ConnectPage />} />
+          <Route path="/connect/events/:eventSlug" element={<EventDetailPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </main>
